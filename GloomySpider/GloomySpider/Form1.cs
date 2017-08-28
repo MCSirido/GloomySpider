@@ -7,19 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework;
+
 
 namespace GloomySpider
 {
-    public partial class Form1 : Form
+    public partial class MainFrom : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public MainFrom()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("자동주문 시작!!");
-        }
+    
     }
 }
