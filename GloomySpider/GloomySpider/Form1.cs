@@ -19,6 +19,12 @@ namespace GloomySpider
             InitializeComponent();
         }
 
-    
+        private void bttnStart_Click(object sender, EventArgs e)
+        {
+            long Result;
+            Result = axKHOpenAPI1.CommConnect();
+            if (Result != 0)
+                MessageBox.Show("Login창 열림 Fail");
+        }
     }
 }

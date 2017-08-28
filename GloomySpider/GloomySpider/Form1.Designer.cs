@@ -28,23 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrom));
+            this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
+            this.bttnStart = new MetroFramework.Controls.MetroButton();
+            ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // axKHOpenAPI1
+            // 
+            this.axKHOpenAPI1.Enabled = true;
+            this.axKHOpenAPI1.Location = new System.Drawing.Point(8, 518);
+            this.axKHOpenAPI1.Name = "axKHOpenAPI1";
+            this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
+            this.axKHOpenAPI1.Size = new System.Drawing.Size(100, 50);
+            this.axKHOpenAPI1.TabIndex = 0;
+            this.axKHOpenAPI1.Visible = false;
+            // 
+            // bttnStart
+            // 
+            this.bttnStart.Location = new System.Drawing.Point(23, 74);
+            this.bttnStart.Name = "bttnStart";
+            this.bttnStart.Size = new System.Drawing.Size(75, 23);
+            this.bttnStart.TabIndex = 1;
+            this.bttnStart.Text = "Start";
+            this.bttnStart.UseSelectable = true;
+            this.bttnStart.Click += new System.EventHandler(this.bttnStart_Click);
             // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 575);
+            this.Controls.Add(this.bttnStart);
+            this.Controls.Add(this.axKHOpenAPI1);
             this.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainFrom";
             this.Text = "Gloomy Spider";
+            ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1;
+        private MetroFramework.Controls.MetroButton bttnStart;
     }
 }
 
