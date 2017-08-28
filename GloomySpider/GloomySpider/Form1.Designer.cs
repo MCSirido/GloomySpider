@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrom));
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.bttnStart = new MetroFramework.Controls.MetroButton();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,15 +51,24 @@
             this.bttnStart.Name = "bttnStart";
             this.bttnStart.Size = new System.Drawing.Size(75, 23);
             this.bttnStart.TabIndex = 1;
-            this.bttnStart.Text = "Start";
+            this.bttnStart.Text = "Log In";
             this.bttnStart.UseSelectable = true;
             this.bttnStart.Click += new System.EventHandler(this.bttnStart_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(24, 104);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(299, 165);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
             // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 575);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.bttnStart);
             this.Controls.Add(this.axKHOpenAPI1);
             this.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -75,6 +85,7 @@
 
         private AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1;
         private MetroFramework.Controls.MetroButton bttnStart;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
