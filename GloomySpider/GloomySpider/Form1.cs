@@ -14,44 +14,76 @@ namespace GloomySpider
 {
     public partial class MainFrom : MetroFramework.Forms.MetroForm
     {
+        long LogInResult;
         public MainFrom()
         {
             InitializeComponent();
 
-            axKHOpenAPI1.OnEventConnect += API_OnEventConnect;
+            axKHOpenAPI.OnEventConnect += API_OnEventConnect;
         }
 
         private void API_OnEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
+            if (LogInResult == 0)
+            {
+                Logger(Log.일반, "로그인창 열기 성공");
+            }
+            else
+            {
+                Logger(Log.에러, "로그인창 열기 실패");
+            }
             UpdateUserInformation();
         }
 
         private void bttnStart_Click(object sender, EventArgs e)
         {
-            long Result;
-            Result = axKHOpenAPI1.CommConnect();
-            if (Result != 0)
-                MessageBox.Show("Login창 열림 Fail");
+            if (axKHOpenAPI.GetConnectState() == 0)
+            {
+                LogInResult = axKHOpenAPI.CommConnect();
+            }
+            else
+            {
+                Logger(Log.일반, "연결중");
+            }
+        }
+
+        // 로그를 출력합니다.
+        public void Logger(Log type, string msg)
+        {
+            listviewLog.Items.Add(type.ToString() + " : " + msg);
         }
 
         private void UpdateUserInformation()
         {
             richTextBox1.Text = "";
-            richTextBox1.Text += "LOGIN ID : " + axKHOpenAPI1.GetLoginInfo("USER_ID");
-            string account = axKHOpenAPI1.GetLoginInfo("ACCNO");
+            richTextBox1.Text += "LOGIN ID : " + axKHOpenAPI.GetLoginInfo("USER_ID");
+            string account = axKHOpenAPI.GetLoginInfo("ACCNO");
             string[] accounts = account.Split(';');
-            richTextBox1.Text += "\n 보유한 계좌 : " + axKHOpenAPI1.GetLoginInfo("ACCOUNT_CNT");
+            richTextBox1.Text += "\n 보유한 계좌 : " + axKHOpenAPI.GetLoginInfo("ACCOUNT_CNT");
             foreach (string acc in accounts)
             {
+                if (string.IsNullOrEmpty(acc))
+                    continue;
+
                 richTextBox1.Text += "\n Account : " + acc;
             }
 
-            richTextBox1.Text += "\n 사용자명 : " + axKHOpenAPI1.GetLoginInfo("USER_NAME");
-            richTextBox1.Text += "\n 키보드보안 해지여부 0:정상, 1:해지 : " + axKHOpenAPI1.GetLoginInfo("KEY_BSECGB");
-            richTextBox1.Text += "\n 방화벽 설정 여부. 0:미설정, 1:설정, 2:해지 : " + axKHOpenAPI1.GetLoginInfo("FIREW_SECGB");
+            richTextBox1.Text += "\n 사용자명 : " + axKHOpenAPI.GetLoginInfo("USER_NAME");
         }
 
+        private void bttnConditionSearch_Click(object sender, EventArgs e)
+        {
+            int lRet;
+            lRet = axKHOpenAPI.GetConditionLoad();
 
-
+            if (lRet == 1)
+            {
+                Logger(Log.일반, "조건식 저장이 성공 되었습니다");
+            }
+            else
+            {
+                Logger(Log.에러, "조건식 저장이 실패 하였습니다");
+            }
+        }
     }
 }
