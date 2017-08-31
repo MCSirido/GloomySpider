@@ -15,6 +15,7 @@ namespace GloomySpider
     public partial class MainFrom : MetroFramework.Forms.MetroForm
     {
         long LogInResult;
+        int conditionLoadState;
         public MainFrom()
         {
             InitializeComponent();
@@ -73,12 +74,45 @@ namespace GloomySpider
 
         private void bttnConditionSearch_Click(object sender, EventArgs e)
         {
-            int lRet;
-            lRet = axKHOpenAPI.GetConditionLoad();
+            this.listviewConditionSearchList.Clear();
 
-            if (lRet == 1)
+            if (conditionLoadState == 1)
+            {
+                string conditionSearchList;
+
+                conditionSearchList = axKHOpenAPI.GetConditionNameList().Trim();
+
+                Logger(Log.조회, conditionSearchList);
+
+                // 분리된 문자 배열 저장
+                string[] spconditionSearchListArr = conditionSearchList.Split(';');
+
+                foreach (string condition in spconditionSearchListArr)
+                {
+                    if (string.IsNullOrEmpty(condition))
+                        continue;
+
+                    listviewConditionSearchList.Items.Add(condition);
+                    /*
+                    string[] spCon = spConList[i].Split('^');
+                    int nIndex = Int32.Parse(spCon[0]);
+                    string strConditionName = spCon[1];
+                    cbo조건식.Items.Add(strConditionName);
+                    */
+                }
+                Logger(Log.일반, "조건식 불러오기 완료");
+            }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
+            conditionLoadState = axKHOpenAPI.GetConditionLoad();
+
+            if (conditionLoadState == 1)
             {
                 Logger(Log.일반, "조건식 저장이 성공 되었습니다");
+
             }
             else
             {

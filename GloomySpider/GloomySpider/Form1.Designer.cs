@@ -34,6 +34,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.listviewLog = new MetroFramework.Controls.MetroListView();
             this.bttnConditionSearch = new MetroFramework.Controls.MetroButton();
+            this.listviewConditionSearchList = new MetroFramework.Controls.MetroListView();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,13 +63,14 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(27, 120);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(332, 189);
+            this.richTextBox1.Size = new System.Drawing.Size(332, 102);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // listviewLog
             // 
             this.listviewLog.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.listviewLog.ForeColor = System.Drawing.Color.Black;
             this.listviewLog.FullRowSelect = true;
             this.listviewLog.GridLines = true;
             this.listviewLog.Location = new System.Drawing.Point(699, 72);
@@ -83,7 +86,7 @@
             // 
             // bttnConditionSearch
             // 
-            this.bttnConditionSearch.Location = new System.Drawing.Point(29, 346);
+            this.bttnConditionSearch.Location = new System.Drawing.Point(156, 241);
             this.bttnConditionSearch.Name = "bttnConditionSearch";
             this.bttnConditionSearch.Size = new System.Drawing.Size(83, 26);
             this.bttnConditionSearch.TabIndex = 4;
@@ -91,11 +94,39 @@
             this.bttnConditionSearch.UseSelectable = true;
             this.bttnConditionSearch.Click += new System.EventHandler(this.bttnConditionSearch_Click);
             // 
+            // listviewConditionSearchList
+            // 
+            this.listviewConditionSearchList.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.listviewConditionSearchList.FullRowSelect = true;
+            this.listviewConditionSearchList.GridLines = true;
+            this.listviewConditionSearchList.Location = new System.Drawing.Point(27, 288);
+            this.listviewConditionSearchList.MultiSelect = false;
+            this.listviewConditionSearchList.Name = "listviewConditionSearchList";
+            this.listviewConditionSearchList.OwnerDraw = true;
+            this.listviewConditionSearchList.Size = new System.Drawing.Size(221, 111);
+            this.listviewConditionSearchList.TabIndex = 5;
+            this.listviewConditionSearchList.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.listviewConditionSearchList.UseCompatibleStateImageBehavior = false;
+            this.listviewConditionSearchList.UseSelectable = true;
+            this.listviewConditionSearchList.View = System.Windows.Forms.View.List;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(27, 241);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(108, 26);
+            this.metroButton1.TabIndex = 6;
+            this.metroButton1.Text = "조건 검색 Load";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 661);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.listviewConditionSearchList);
             this.Controls.Add(this.bttnConditionSearch);
             this.Controls.Add(this.listviewLog);
             this.Controls.Add(this.richTextBox1);
@@ -119,6 +150,8 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private MetroFramework.Controls.MetroListView listviewLog;
         private MetroFramework.Controls.MetroButton bttnConditionSearch;
+        private MetroFramework.Controls.MetroListView listviewConditionSearchList;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }
 
