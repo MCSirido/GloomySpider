@@ -33,9 +33,9 @@
             this.bttnStart = new MetroFramework.Controls.MetroButton();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.listviewLog = new MetroFramework.Controls.MetroListView();
-            this.bttnConditionSearch = new MetroFramework.Controls.MetroButton();
             this.listviewConditionSearchList = new MetroFramework.Controls.MetroListView();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,16 +84,6 @@
             this.listviewLog.UseSelectable = true;
             this.listviewLog.View = System.Windows.Forms.View.List;
             // 
-            // bttnConditionSearch
-            // 
-            this.bttnConditionSearch.Location = new System.Drawing.Point(156, 241);
-            this.bttnConditionSearch.Name = "bttnConditionSearch";
-            this.bttnConditionSearch.Size = new System.Drawing.Size(83, 26);
-            this.bttnConditionSearch.TabIndex = 4;
-            this.bttnConditionSearch.Text = "조건 검색";
-            this.bttnConditionSearch.UseSelectable = true;
-            this.bttnConditionSearch.Click += new System.EventHandler(this.bttnConditionSearch_Click);
-            // 
             // listviewConditionSearchList
             // 
             this.listviewConditionSearchList.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -103,7 +93,7 @@
             this.listviewConditionSearchList.MultiSelect = false;
             this.listviewConditionSearchList.Name = "listviewConditionSearchList";
             this.listviewConditionSearchList.OwnerDraw = true;
-            this.listviewConditionSearchList.Size = new System.Drawing.Size(221, 111);
+            this.listviewConditionSearchList.Size = new System.Drawing.Size(332, 111);
             this.listviewConditionSearchList.TabIndex = 5;
             this.listviewConditionSearchList.Theme = MetroFramework.MetroThemeStyle.Light;
             this.listviewConditionSearchList.UseCompatibleStateImageBehavior = false;
@@ -120,14 +110,24 @@
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(153, 241);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(135, 26);
+            this.metroButton2.TabIndex = 7;
+            this.metroButton2.Text = "조건 검색 시작";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 661);
+            this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.listviewConditionSearchList);
-            this.Controls.Add(this.bttnConditionSearch);
             this.Controls.Add(this.listviewLog);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.bttnStart);
@@ -149,9 +149,9 @@
         private MetroFramework.Controls.MetroButton bttnStart;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private MetroFramework.Controls.MetroListView listviewLog;
-        private MetroFramework.Controls.MetroButton bttnConditionSearch;
         private MetroFramework.Controls.MetroListView listviewConditionSearchList;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }
 
