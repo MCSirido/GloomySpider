@@ -48,6 +48,7 @@
             this.tbOrderPrice = new MetroFramework.Controls.MetroTextBox();
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
+            this.bttnConditionSearchStart = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.SuspendLayout();
             // 
@@ -331,11 +332,22 @@
             this.metroRadioButton2.UseSelectable = true;
             this.metroRadioButton2.CheckedChanged += new System.EventHandler(this.metroRadioButton2_CheckedChanged);
             // 
+            // bttnConditionSearchStart
+            // 
+            this.bttnConditionSearchStart.Location = new System.Drawing.Point(155, 241);
+            this.bttnConditionSearchStart.Name = "bttnConditionSearchStart";
+            this.bttnConditionSearchStart.Size = new System.Drawing.Size(204, 26);
+            this.bttnConditionSearchStart.TabIndex = 21;
+            this.bttnConditionSearchStart.Text = "조건 검색 시작";
+            this.bttnConditionSearchStart.UseSelectable = true;
+            this.bttnConditionSearchStart.Click += new System.EventHandler(this.bttnConditionSearchStart_Click);
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 661);
+            this.Controls.Add(this.bttnConditionSearchStart);
             this.Controls.Add(this.metroRadioButton2);
             this.Controls.Add(this.metroRadioButton1);
             this.Controls.Add(this.tbOrderPrice);
@@ -355,7 +367,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.bttnStart);
             this.Controls.Add(this.axKHOpenAPI);
-            this.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.Font = new System.Drawing.Font("Malgun Gothic", 10F);
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "MainFrom";
@@ -388,6 +400,7 @@
         private MetroFramework.Controls.MetroTextBox tbOrderPrice;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
+        private MetroFramework.Controls.MetroButton bttnConditionSearchStart;
     }
 }
 
