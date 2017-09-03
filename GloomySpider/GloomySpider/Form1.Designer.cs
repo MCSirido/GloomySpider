@@ -32,6 +32,8 @@
             this.axKHOpenAPI = new AxKHOpenAPILib.AxKHOpenAPI();
             this.bttnStart = new MetroFramework.Controls.MetroButton();
             this.listviewConditionSearchList = new MetroFramework.Controls.MetroListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bttnConditionLoad = new MetroFramework.Controls.MetroButton();
             this.btnBuy = new MetroFramework.Controls.MetroButton();
             this.btnSell = new MetroFramework.Controls.MetroButton();
@@ -48,8 +50,6 @@
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
             this.bttnConditionSearchStart = new MetroFramework.Controls.MetroButton();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listviewStockResult = new MetroFramework.Controls.MetroListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,7 +60,13 @@
             this.listviewAccStock = new MetroFramework.Controls.MetroListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.metroRadioButton3 = new MetroFramework.Controls.MetroRadioButton();
+            this.metroRadioButton4 = new MetroFramework.Controls.MetroRadioButton();
+            this.btnPossibleCnt = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // axKHOpenAPI
@@ -101,6 +107,16 @@
             this.listviewConditionSearchList.UseCompatibleStateImageBehavior = false;
             this.listviewConditionSearchList.UseSelectable = true;
             this.listviewConditionSearchList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "조건번호";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "조건명";
+            this.columnHeader2.Width = 200;
             // 
             // bttnConditionLoad
             // 
@@ -313,10 +329,12 @@
             // metroRadioButton2
             // 
             this.metroRadioButton2.AutoSize = true;
+            this.metroRadioButton2.Checked = true;
             this.metroRadioButton2.Location = new System.Drawing.Point(175, 242);
             this.metroRadioButton2.Name = "metroRadioButton2";
             this.metroRadioButton2.Size = new System.Drawing.Size(63, 17);
             this.metroRadioButton2.TabIndex = 20;
+            this.metroRadioButton2.TabStop = true;
             this.metroRadioButton2.Text = "시장가";
             this.metroRadioButton2.UseSelectable = true;
             this.metroRadioButton2.CheckedChanged += new System.EventHandler(this.metroRadioButton2_CheckedChanged);
@@ -338,16 +356,6 @@
             this.richTextBoxLog.Size = new System.Drawing.Size(463, 563);
             this.richTextBoxLog.TabIndex = 22;
             this.richTextBoxLog.Text = "";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "조건번호";
-            this.columnHeader1.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "조건명";
-            this.columnHeader2.Width = 200;
             // 
             // listviewStockResult
             // 
@@ -535,11 +543,63 @@
             this.columnHeader6.Text = "현재가";
             this.columnHeader6.Width = 100;
             // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(26, 300);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(69, 20);
+            this.metroLabel6.TabIndex = 29;
+            this.metroLabel6.Text = "신용구분";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.metroRadioButton3);
+            this.panel1.Controls.Add(this.metroRadioButton4);
+            this.panel1.Location = new System.Drawing.Point(95, 297);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(152, 28);
+            this.panel1.TabIndex = 30;
+            // 
+            // metroRadioButton3
+            // 
+            this.metroRadioButton3.AutoSize = true;
+            this.metroRadioButton3.Location = new System.Drawing.Point(81, 6);
+            this.metroRadioButton3.Name = "metroRadioButton3";
+            this.metroRadioButton3.Size = new System.Drawing.Size(50, 17);
+            this.metroRadioButton3.TabIndex = 22;
+            this.metroRadioButton3.Text = "신용";
+            this.metroRadioButton3.UseSelectable = true;
+            // 
+            // metroRadioButton4
+            // 
+            this.metroRadioButton4.AutoSize = true;
+            this.metroRadioButton4.Checked = true;
+            this.metroRadioButton4.Location = new System.Drawing.Point(5, 6);
+            this.metroRadioButton4.Name = "metroRadioButton4";
+            this.metroRadioButton4.Size = new System.Drawing.Size(50, 17);
+            this.metroRadioButton4.TabIndex = 21;
+            this.metroRadioButton4.TabStop = true;
+            this.metroRadioButton4.Text = "현금";
+            this.metroRadioButton4.UseSelectable = true;
+            // 
+            // btnPossibleCnt
+            // 
+            this.btnPossibleCnt.Location = new System.Drawing.Point(253, 295);
+            this.btnPossibleCnt.Name = "btnPossibleCnt";
+            this.btnPossibleCnt.Size = new System.Drawing.Size(107, 30);
+            this.btnPossibleCnt.TabIndex = 31;
+            this.btnPossibleCnt.Text = "가능수량";
+            this.btnPossibleCnt.UseSelectable = true;
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1250, 680);
+            this.Controls.Add(this.btnPossibleCnt);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.listviewAccStock);
             this.Controls.Add(this.tbAcc총손익금);
             this.Controls.Add(this.tbAcc총수익률);
@@ -565,13 +625,15 @@
             this.Controls.Add(this.listviewConditionSearchList);
             this.Controls.Add(this.bttnStart);
             this.Controls.Add(this.axKHOpenAPI);
-            this.Font = new System.Drawing.Font("Malgun Gothic", 10F);
+            this.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "MainFrom";
             this.Padding = new System.Windows.Forms.Padding(22, 69, 22, 23);
             this.Text = "Gloomy Spider";
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -610,6 +672,11 @@
         private MetroFramework.Controls.MetroListView listviewAccStock;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private System.Windows.Forms.Panel panel1;
+        private MetroFramework.Controls.MetroRadioButton metroRadioButton3;
+        private MetroFramework.Controls.MetroRadioButton metroRadioButton4;
+        private MetroFramework.Controls.MetroButton btnPossibleCnt;
     }
 }
 
