@@ -452,7 +452,7 @@ namespace GloomySpider
         {
             if (this.listviewAccStock.SelectedItems.Count > 0)
             {
-                if (listviewStockResult.SelectedItems != null)
+                if (listviewStockResult.FocusedItem != null)
                 {
                     int index = listviewStockResult.FocusedItem.Index;
                     listviewStockResult.SelectedItems[index].Selected = false;
@@ -460,7 +460,7 @@ namespace GloomySpider
 
                 string stockCode = (string)this.listviewAccStock.SelectedItems[0].Tag;
                 string currentPirce = Int32.Parse(this.listviewAccStock.SelectedItems[0].SubItems[1].Text).ToString();
-                string stockLoanDate = this.listviewAccStock.SelectedItems[0].SubItems[2].Text;
+                string stockLoanDate = this.listviewAccStock.SelectedItems[0].SubItems[3].Text;
 
                 this.tbStockCode.Text = stockCode;
                 this.tbOrderPrice.Text = currentPirce;
