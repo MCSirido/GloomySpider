@@ -29,6 +29,15 @@ namespace GloomySpider
             axKHOpenAPI.OnReceiveRealCondition += API_OnReceiveRealCondition;
             axKHOpenAPI.OnReceiveRealData += API_OnReceiveRealData;
             axKHOpenAPI.OnReceiveConditionVer += API_OnReceiveConditionVer;
+            axKHOpenAPI.OnReceiveMsg += API_OnReceiveMsg;
+        }
+
+        private void API_OnReceiveMsg(object sender, _DKHOpenAPIEvents_OnReceiveMsgEvent e)
+        {
+            if (e.sRQName.Equals("주식주문"))
+            {
+                Logger(Log.에러, e.sMsg);
+            }
         }
 
         #region 키움 API 이벤트
@@ -212,7 +221,7 @@ namespace GloomySpider
                 orderGb = "00";
                 orderPrice = int.Parse(tbOrderPrice.Text);
             }
-            sendOrderGS(2, tbStockCode.Text, int.Parse(tbOrderQty.Text), orderPrice, orderGb);
+            sendOrderGS(2, tbStockCode.Text, int.Parse(tbOrderQty.Text), orderPrice, orderGb, metroRadioButton3.Checked);
         }
 
         private void metroRadioButton2_CheckedChanged(object sender, EventArgs e)
@@ -271,7 +280,8 @@ namespace GloomySpider
                 orderGb = "00";
                 orderPrice = int.Parse(tbOrderPrice.Text);
             }
-            sendOrderGS(1, tbStockCode.Text, int.Parse(tbOrderQty.Text), orderPrice, orderGb);
+
+            sendOrderGS(1, tbStockCode.Text, int.Parse(tbOrderQty.Text), orderPrice, orderGb, metroRadioButton3.Checked);
         }
 
 
@@ -306,7 +316,7 @@ namespace GloomySpider
            원주문번호 orgOrderNo : 일반적으론 주문정정이나 취소가 아닐때는 안넣어도 됨
        */
 
-        private void sendOrderGS(int orderType, string stockCode, int orderQty, int orderPrice, string orderGb, string orgOrderNo = "")
+        private void sendOrderGS(int orderType, string stockCode, int orderQty, int orderPrice, string orderGb, bool creditYn, string orgOrderNo = "")
         {
             int lRet;
             string orderTypeStr = "";
@@ -335,15 +345,34 @@ namespace GloomySpider
                     break;
             }
 
-            lRet = axKHOpenAPI.SendOrder("주식주문",
-                                        GetScreenNum(),
-                                        tbAccount.Text.Trim(),
-                                        orderType,      // 매매구분
-                                        stockCode,   // 종목코드
-                                        orderQty,      // 주문수량
-                                        orderPrice,      // 주문가격 
-                                        orderGb,    // 거래구분 (시장가)
-                                        orgOrderNo);    // 원주문 번호
+            if (creditYn)
+            {
+                orderTypeStr = "신용" + orderTypeStr;
+
+                lRet = axKHOpenAPI.SendOrderCredit("주식주문",
+                            GetScreenNum(),
+                            tbAccount.Text.Trim(),
+                            orderType,      // 매매구분
+                            stockCode,   // 종목코드
+                            orderQty,      // 주문수량
+                            orderPrice,      // 주문가격 
+                            orderGb,    // 거래구분 (시장가)
+                            creditYn?"03":"33",
+                            creditYn?"":"",
+                            orgOrderNo);    // 원주문 번호
+            }
+            else
+            {
+                lRet = axKHOpenAPI.SendOrder("주식주문",
+                            GetScreenNum(),
+                            tbAccount.Text.Trim(),
+                            orderType,      // 매매구분
+                            stockCode,   // 종목코드
+                            orderQty,      // 주문수량
+                            orderPrice,      // 주문가격 
+                            orderGb,    // 거래구분 (시장가)
+                            orgOrderNo);    // 원주문 번호
+            }
 
             if (lRet == 0)
             {
