@@ -65,6 +65,7 @@
             this.metroRadioButton3 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton4 = new MetroFramework.Controls.MetroRadioButton();
             this.btnPossibleCnt = new MetroFramework.Controls.MetroButton();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -375,6 +376,7 @@
             this.listviewStockResult.UseCompatibleStateImageBehavior = false;
             this.listviewStockResult.UseSelectable = true;
             this.listviewStockResult.View = System.Windows.Forms.View.Details;
+            this.listviewStockResult.SelectedIndexChanged += new System.EventHandler(this.listviewStockResult_SelectedIndexChanged);
             // 
             // columnHeader3
             // 
@@ -510,7 +512,8 @@
             // 
             this.listviewAccStock.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7});
             this.listviewAccStock.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.listviewAccStock.FullRowSelect = true;
             this.listviewAccStock.GridLines = true;
@@ -524,11 +527,12 @@
             this.listviewAccStock.UseCompatibleStateImageBehavior = false;
             this.listviewAccStock.UseSelectable = true;
             this.listviewAccStock.View = System.Windows.Forms.View.Details;
+            this.listviewAccStock.SelectedIndexChanged += new System.EventHandler(this.listviewAccStock_SelectedIndexChanged);
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "종목명";
-            this.columnHeader5.Width = 200;
+            this.columnHeader5.Width = 100;
             // 
             // columnHeader6
             // 
@@ -584,6 +588,11 @@
             this.btnPossibleCnt.Text = "가능수량";
             this.btnPossibleCnt.UseSelectable = true;
             this.btnPossibleCnt.Click += new System.EventHandler(this.btnPossibleCnt_Click);
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "수익률";
+            this.columnHeader7.Width = 100;
             // 
             // MainFrom
             // 
@@ -670,6 +679,7 @@
         private MetroFramework.Controls.MetroRadioButton metroRadioButton3;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton4;
         private MetroFramework.Controls.MetroButton btnPossibleCnt;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
 
