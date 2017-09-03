@@ -34,12 +34,10 @@ namespace GloomySpider
         #region 키움 API 이벤트
         private void API_OnReceiveConditionVer(object sender, _DKHOpenAPIEvents_OnReceiveConditionVerEvent e)
         {
-            this.listviewConditionSearchList.Clear();
+            this.listviewConditionSearchList.Items.Clear();
             string conditionSearchList;
 
             conditionSearchList = axKHOpenAPI.GetConditionNameList().Trim();
-
-            Logger(Log.조회, conditionSearchList);
 
             // 분리된 문자 배열 저장
             string[] spconditionSearchListArr = conditionSearchList.Split(';');
@@ -51,7 +49,9 @@ namespace GloomySpider
 
                 string[] conditionaArr = condition.Split('^');
 
-                listviewConditionSearchList.Items.Add(conditionaArr[0] + ";" + conditionaArr[1]);
+                ListViewItem lv = new ListViewItem(conditionaArr[0]);
+                lv.SubItems.Add(conditionaArr[1]);
+                listviewConditionSearchList.Items.Add(lv);
             }
             Logger(Log.일반, "조건식 불러오기 완료");
         }
@@ -76,13 +76,19 @@ namespace GloomySpider
         {
             if (e.sRQName.Equals("조건검색결과"))
             {
+                this.listviewStockResult.Items.Clear();
                 int count = axKHOpenAPI.GetRepeatCnt(e.sTrCode, e.sRQName);
 
                 for (int i = 0; i < count; i++)
                 {
+
                     string stockName = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
                     string stockCurrentPrice = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
-                    Logger(Log.일반, stockName + ";" + stockCurrentPrice);
+                    ListViewItem lv = new ListViewItem(stockName);
+                    lv.SubItems.Add(stockCurrentPrice);
+                    lv.Tag = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+
+                    this.listviewStockResult.Items.Add(lv);
                 }
             }
         }
@@ -92,6 +98,12 @@ namespace GloomySpider
             string codeList = e.strCodeList.Trim();
             if (codeList.Length > 0)
                 codeList = codeList.Remove(codeList.Length - 1);
+
+            if (string.IsNullOrEmpty(codeList))
+            {
+                Logger(Log.일반, "해당 조건 검색 종목 없음");
+                return;
+            }
 
             int count = codeList.Trim().Split(';').Length;
             Logger(Log.일반, codeList);
@@ -132,9 +144,8 @@ namespace GloomySpider
             }
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
+        private void bttnConditionLoad_Click(object sender, EventArgs e)
         {
-
             conditionLoadState = axKHOpenAPI.GetConditionLoad();
 
             if (conditionLoadState == 1)
@@ -147,8 +158,6 @@ namespace GloomySpider
                 Logger(Log.에러, "조건식 저장이 실패 하였습니다");
             }
         }
-
-
 
         private void btnSell_Click(object sender, EventArgs e)
         {
@@ -195,19 +204,8 @@ namespace GloomySpider
             if (this.listviewConditionSearchList.SelectedItems.Count == 0)
                 return;
 
-
-            foreach (ListViewItem lvItem in this.listviewConditionSearchList.Items)
-            {
-                string[] conditionInfo1 = lvItem.Text.Split(';');
-                int conditionIndex1 = Int32.Parse(conditionInfo1[0]);
-                string conditionName1 = conditionInfo1[1];
-
-                axKHOpenAPI.SendConditionStop(GetScreenNum(), conditionName1, conditionIndex1);
-            }
-
-            string[] conditionInfo = this.listviewConditionSearchList.SelectedItems[0].Text.Split(';');
-            int conditionIndex = Int32.Parse(conditionInfo[0]);
-            string conditionName = conditionInfo[1];
+            int conditionIndex = Int32.Parse(this.listviewConditionSearchList.SelectedItems[0].SubItems[0].Text);
+            string conditionName = this.listviewConditionSearchList.SelectedItems[0].SubItems[1].Text;
             int result = axKHOpenAPI.SendCondition(GetScreenNum(), conditionName, conditionIndex, 1);
 
             if (result > 0)
@@ -308,32 +306,28 @@ namespace GloomySpider
 
         private void UpdateUserInformation()
         {
-            richTextBox1.Text = "";
-            richTextBox1.Text += "LOGIN ID : " + axKHOpenAPI.GetLoginInfo("USER_ID");
             string account = axKHOpenAPI.GetLoginInfo("ACCNO");
             string[] accounts = account.Split(';');
-            richTextBox1.Text += "\n 보유한 계좌 : " + axKHOpenAPI.GetLoginInfo("ACCOUNT_CNT");
 
             foreach (string acc in accounts)
             {
                 if (string.IsNullOrEmpty(acc))
                     continue;
 
-                richTextBox1.Text += "\n Account : " + acc;
                 if (string.IsNullOrEmpty(tbAccount.Text))
                 {
                     tbAccount.Text = acc;
                 }
             }
-
-            richTextBox1.Text += "\n 사용자명 : " + axKHOpenAPI.GetLoginInfo("USER_NAME");
         }
 
         // 로그를 출력합니다.
         public void Logger(Log type, string msg)
         {
-            listviewLog.Items.Add(type.ToString() + " : " + msg);
-        } 
+            this.richTextBoxLog.AppendText(type.ToString() + " : " + msg+"\n");
+        }
         #endregion
+
+
     }
 }

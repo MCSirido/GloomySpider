@@ -31,10 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrom));
             this.axKHOpenAPI = new AxKHOpenAPILib.AxKHOpenAPI();
             this.bttnStart = new MetroFramework.Controls.MetroButton();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.listviewLog = new MetroFramework.Controls.MetroListView();
             this.listviewConditionSearchList = new MetroFramework.Controls.MetroListView();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.bttnConditionLoad = new MetroFramework.Controls.MetroButton();
             this.btnBuy = new MetroFramework.Controls.MetroButton();
             this.btnSell = new MetroFramework.Controls.MetroButton();
             this.tbAccount = new MetroFramework.Controls.MetroTextBox();
@@ -49,6 +47,12 @@
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
             this.bttnConditionSearchStart = new MetroFramework.Controls.MetroButton();
+            this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listviewStockResult = new MetroFramework.Controls.MetroListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,60 +76,38 @@
             this.bttnStart.UseSelectable = true;
             this.bttnStart.Click += new System.EventHandler(this.bttnStart_Click);
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(27, 120);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(332, 102);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
-            // 
-            // listviewLog
-            // 
-            this.listviewLog.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.listviewLog.ForeColor = System.Drawing.Color.Black;
-            this.listviewLog.FullRowSelect = true;
-            this.listviewLog.GridLines = true;
-            this.listviewLog.Location = new System.Drawing.Point(699, 72);
-            this.listviewLog.MultiSelect = false;
-            this.listviewLog.Name = "listviewLog";
-            this.listviewLog.OwnerDraw = true;
-            this.listviewLog.Size = new System.Drawing.Size(513, 572);
-            this.listviewLog.TabIndex = 3;
-            this.listviewLog.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.listviewLog.UseCompatibleStateImageBehavior = false;
-            this.listviewLog.UseSelectable = true;
-            this.listviewLog.View = System.Windows.Forms.View.List;
-            // 
             // listviewConditionSearchList
             // 
+            this.listviewConditionSearchList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
             this.listviewConditionSearchList.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.listviewConditionSearchList.FullRowSelect = true;
             this.listviewConditionSearchList.GridLines = true;
-            this.listviewConditionSearchList.Location = new System.Drawing.Point(27, 290);
+            this.listviewConditionSearchList.Location = new System.Drawing.Point(386, 72);
             this.listviewConditionSearchList.MultiSelect = false;
             this.listviewConditionSearchList.Name = "listviewConditionSearchList";
             this.listviewConditionSearchList.OwnerDraw = true;
-            this.listviewConditionSearchList.Size = new System.Drawing.Size(332, 111);
+            this.listviewConditionSearchList.Size = new System.Drawing.Size(332, 257);
             this.listviewConditionSearchList.TabIndex = 5;
             this.listviewConditionSearchList.Theme = MetroFramework.MetroThemeStyle.Light;
             this.listviewConditionSearchList.UseCompatibleStateImageBehavior = false;
             this.listviewConditionSearchList.UseSelectable = true;
-            this.listviewConditionSearchList.View = System.Windows.Forms.View.List;
+            this.listviewConditionSearchList.View = System.Windows.Forms.View.Details;
             // 
-            // metroButton1
+            // bttnConditionLoad
             // 
-            this.metroButton1.Location = new System.Drawing.Point(27, 241);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(108, 26);
-            this.metroButton1.TabIndex = 6;
-            this.metroButton1.Text = "조건 검색 Load";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            this.bttnConditionLoad.Location = new System.Drawing.Point(26, 104);
+            this.bttnConditionLoad.Name = "bttnConditionLoad";
+            this.bttnConditionLoad.Size = new System.Drawing.Size(154, 26);
+            this.bttnConditionLoad.TabIndex = 6;
+            this.bttnConditionLoad.Text = "조건 검색 Load";
+            this.bttnConditionLoad.UseSelectable = true;
+            this.bttnConditionLoad.Click += new System.EventHandler(this.bttnConditionLoad_Click);
             // 
             // btnBuy
             // 
-            this.btnBuy.Location = new System.Drawing.Point(254, 423);
+            this.btnBuy.Location = new System.Drawing.Point(253, 146);
             this.btnBuy.Name = "btnBuy";
             this.btnBuy.Size = new System.Drawing.Size(107, 70);
             this.btnBuy.TabIndex = 7;
@@ -135,7 +117,7 @@
             // 
             // btnSell
             // 
-            this.btnSell.Location = new System.Drawing.Point(254, 499);
+            this.btnSell.Location = new System.Drawing.Point(253, 222);
             this.btnSell.Name = "btnSell";
             this.btnSell.Size = new System.Drawing.Size(107, 67);
             this.btnSell.TabIndex = 8;
@@ -158,7 +140,7 @@
             this.tbAccount.CustomButton.UseSelectable = true;
             this.tbAccount.CustomButton.Visible = false;
             this.tbAccount.Lines = new string[0];
-            this.tbAccount.Location = new System.Drawing.Point(100, 423);
+            this.tbAccount.Location = new System.Drawing.Point(99, 146);
             this.tbAccount.MaxLength = 32767;
             this.tbAccount.Name = "tbAccount";
             this.tbAccount.PasswordChar = '\0';
@@ -176,7 +158,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(27, 426);
+            this.metroLabel1.Location = new System.Drawing.Point(26, 149);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(69, 20);
             this.metroLabel1.TabIndex = 10;
@@ -185,7 +167,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(27, 456);
+            this.metroLabel2.Location = new System.Drawing.Point(26, 179);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(69, 20);
             this.metroLabel2.TabIndex = 11;
@@ -194,7 +176,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(27, 486);
+            this.metroLabel3.Location = new System.Drawing.Point(26, 209);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(69, 20);
             this.metroLabel3.TabIndex = 12;
@@ -203,7 +185,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(27, 546);
+            this.metroLabel4.Location = new System.Drawing.Point(26, 269);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(69, 20);
             this.metroLabel4.TabIndex = 13;
@@ -212,7 +194,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(27, 516);
+            this.metroLabel5.Location = new System.Drawing.Point(26, 239);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(69, 20);
             this.metroLabel5.TabIndex = 14;
@@ -234,7 +216,7 @@
             this.tbStockCode.CustomButton.Visible = false;
             this.tbStockCode.Lines = new string[] {
         "039490"};
-            this.tbStockCode.Location = new System.Drawing.Point(100, 456);
+            this.tbStockCode.Location = new System.Drawing.Point(99, 179);
             this.tbStockCode.MaxLength = 32767;
             this.tbStockCode.Name = "tbStockCode";
             this.tbStockCode.PasswordChar = '\0';
@@ -265,7 +247,7 @@
             this.tbOrderQty.CustomButton.UseSelectable = true;
             this.tbOrderQty.CustomButton.Visible = false;
             this.tbOrderQty.Lines = new string[0];
-            this.tbOrderQty.Location = new System.Drawing.Point(100, 486);
+            this.tbOrderQty.Location = new System.Drawing.Point(99, 209);
             this.tbOrderQty.MaxLength = 32767;
             this.tbOrderQty.Name = "tbOrderQty";
             this.tbOrderQty.PasswordChar = '\0';
@@ -295,7 +277,7 @@
             this.tbOrderPrice.CustomButton.UseSelectable = true;
             this.tbOrderPrice.CustomButton.Visible = false;
             this.tbOrderPrice.Lines = new string[0];
-            this.tbOrderPrice.Location = new System.Drawing.Point(100, 545);
+            this.tbOrderPrice.Location = new System.Drawing.Point(99, 268);
             this.tbOrderPrice.MaxLength = 32767;
             this.tbOrderPrice.Name = "tbOrderPrice";
             this.tbOrderPrice.PasswordChar = '\0';
@@ -313,7 +295,7 @@
             // metroRadioButton1
             // 
             this.metroRadioButton1.AutoSize = true;
-            this.metroRadioButton1.Location = new System.Drawing.Point(100, 519);
+            this.metroRadioButton1.Location = new System.Drawing.Point(99, 242);
             this.metroRadioButton1.Name = "metroRadioButton1";
             this.metroRadioButton1.Size = new System.Drawing.Size(63, 17);
             this.metroRadioButton1.TabIndex = 19;
@@ -324,7 +306,7 @@
             // metroRadioButton2
             // 
             this.metroRadioButton2.AutoSize = true;
-            this.metroRadioButton2.Location = new System.Drawing.Point(176, 519);
+            this.metroRadioButton2.Location = new System.Drawing.Point(175, 242);
             this.metroRadioButton2.Name = "metroRadioButton2";
             this.metroRadioButton2.Size = new System.Drawing.Size(63, 17);
             this.metroRadioButton2.TabIndex = 20;
@@ -334,19 +316,68 @@
             // 
             // bttnConditionSearchStart
             // 
-            this.bttnConditionSearchStart.Location = new System.Drawing.Point(155, 241);
+            this.bttnConditionSearchStart.Location = new System.Drawing.Point(186, 104);
             this.bttnConditionSearchStart.Name = "bttnConditionSearchStart";
-            this.bttnConditionSearchStart.Size = new System.Drawing.Size(204, 26);
+            this.bttnConditionSearchStart.Size = new System.Drawing.Size(174, 26);
             this.bttnConditionSearchStart.TabIndex = 21;
             this.bttnConditionSearchStart.Text = "조건 검색 시작";
             this.bttnConditionSearchStart.UseSelectable = true;
             this.bttnConditionSearchStart.Click += new System.EventHandler(this.bttnConditionSearchStart_Click);
             // 
+            // richTextBoxLog
+            // 
+            this.richTextBoxLog.Location = new System.Drawing.Point(835, 72);
+            this.richTextBoxLog.Name = "richTextBoxLog";
+            this.richTextBoxLog.Size = new System.Drawing.Size(369, 563);
+            this.richTextBoxLog.TabIndex = 22;
+            this.richTextBoxLog.Text = "";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "조건번호";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "조건명";
+            this.columnHeader2.Width = 200;
+            // 
+            // listviewStockResult
+            // 
+            this.listviewStockResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listviewStockResult.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.listviewStockResult.FullRowSelect = true;
+            this.listviewStockResult.GridLines = true;
+            this.listviewStockResult.Location = new System.Drawing.Point(386, 352);
+            this.listviewStockResult.MultiSelect = false;
+            this.listviewStockResult.Name = "listviewStockResult";
+            this.listviewStockResult.OwnerDraw = true;
+            this.listviewStockResult.Size = new System.Drawing.Size(332, 257);
+            this.listviewStockResult.TabIndex = 23;
+            this.listviewStockResult.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.listviewStockResult.UseCompatibleStateImageBehavior = false;
+            this.listviewStockResult.UseSelectable = true;
+            this.listviewStockResult.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "종목명";
+            this.columnHeader3.Width = 200;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "현재가";
+            this.columnHeader4.Width = 100;
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 661);
+            this.ClientSize = new System.Drawing.Size(1250, 661);
+            this.Controls.Add(this.listviewStockResult);
+            this.Controls.Add(this.richTextBoxLog);
             this.Controls.Add(this.bttnConditionSearchStart);
             this.Controls.Add(this.metroRadioButton2);
             this.Controls.Add(this.metroRadioButton1);
@@ -361,10 +392,8 @@
             this.Controls.Add(this.tbAccount);
             this.Controls.Add(this.btnSell);
             this.Controls.Add(this.btnBuy);
-            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.bttnConditionLoad);
             this.Controls.Add(this.listviewConditionSearchList);
-            this.Controls.Add(this.listviewLog);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.bttnStart);
             this.Controls.Add(this.axKHOpenAPI);
             this.Font = new System.Drawing.Font("Malgun Gothic", 10F);
@@ -383,10 +412,8 @@
 
         private AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI;
         private MetroFramework.Controls.MetroButton bttnStart;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private MetroFramework.Controls.MetroListView listviewLog;
         private MetroFramework.Controls.MetroListView listviewConditionSearchList;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton bttnConditionLoad;
         private MetroFramework.Controls.MetroButton btnBuy;
         private MetroFramework.Controls.MetroButton btnSell;
         private MetroFramework.Controls.MetroTextBox tbAccount;
@@ -401,6 +428,12 @@
         private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
         private MetroFramework.Controls.MetroButton bttnConditionSearchStart;
+        private System.Windows.Forms.RichTextBox richTextBoxLog;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private MetroFramework.Controls.MetroListView listviewStockResult;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
 
