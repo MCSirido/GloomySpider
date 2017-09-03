@@ -53,6 +53,13 @@
             this.listviewStockResult = new MetroFramework.Controls.MetroListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tbAcc예수금 = new MetroFramework.Controls.MetroTextBox();
+            this.tbAcc총평가금액 = new MetroFramework.Controls.MetroTextBox();
+            this.tbAcc총수익률 = new MetroFramework.Controls.MetroTextBox();
+            this.tbAcc총손익금 = new MetroFramework.Controls.MetroTextBox();
+            this.listviewAccStock = new MetroFramework.Controls.MetroListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.SuspendLayout();
             // 
@@ -326,9 +333,9 @@
             // 
             // richTextBoxLog
             // 
-            this.richTextBoxLog.Location = new System.Drawing.Point(835, 72);
+            this.richTextBoxLog.Location = new System.Drawing.Point(741, 72);
             this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.Size = new System.Drawing.Size(369, 563);
+            this.richTextBoxLog.Size = new System.Drawing.Size(463, 563);
             this.richTextBoxLog.TabIndex = 22;
             this.richTextBoxLog.Text = "";
             // 
@@ -371,11 +378,173 @@
             this.columnHeader4.Text = "현재가";
             this.columnHeader4.Width = 100;
             // 
+            // tbAcc예수금
+            // 
+            // 
+            // 
+            // 
+            this.tbAcc예수금.CustomButton.Image = null;
+            this.tbAcc예수금.CustomButton.Location = new System.Drawing.Point(114, 1);
+            this.tbAcc예수금.CustomButton.Name = "";
+            this.tbAcc예수금.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbAcc예수금.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbAcc예수금.CustomButton.TabIndex = 1;
+            this.tbAcc예수금.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbAcc예수금.CustomButton.UseSelectable = true;
+            this.tbAcc예수금.CustomButton.Visible = false;
+            this.tbAcc예수금.Lines = new string[] {
+        "metroTextBox1"};
+            this.tbAcc예수금.Location = new System.Drawing.Point(26, 352);
+            this.tbAcc예수금.MaxLength = 32767;
+            this.tbAcc예수금.Name = "tbAcc예수금";
+            this.tbAcc예수금.PasswordChar = '\0';
+            this.tbAcc예수금.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbAcc예수금.SelectedText = "";
+            this.tbAcc예수금.SelectionLength = 0;
+            this.tbAcc예수금.SelectionStart = 0;
+            this.tbAcc예수금.ShortcutsEnabled = true;
+            this.tbAcc예수금.Size = new System.Drawing.Size(136, 23);
+            this.tbAcc예수금.TabIndex = 24;
+            this.tbAcc예수금.Text = "metroTextBox1";
+            this.tbAcc예수금.UseSelectable = true;
+            this.tbAcc예수금.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbAcc예수금.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // tbAcc총평가금액
+            // 
+            // 
+            // 
+            // 
+            this.tbAcc총평가금액.CustomButton.Image = null;
+            this.tbAcc총평가금액.CustomButton.Location = new System.Drawing.Point(114, 1);
+            this.tbAcc총평가금액.CustomButton.Name = "";
+            this.tbAcc총평가금액.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbAcc총평가금액.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbAcc총평가금액.CustomButton.TabIndex = 1;
+            this.tbAcc총평가금액.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbAcc총평가금액.CustomButton.UseSelectable = true;
+            this.tbAcc총평가금액.CustomButton.Visible = false;
+            this.tbAcc총평가금액.Lines = new string[] {
+        "metroTextBox1"};
+            this.tbAcc총평가금액.Location = new System.Drawing.Point(168, 352);
+            this.tbAcc총평가금액.MaxLength = 32767;
+            this.tbAcc총평가금액.Name = "tbAcc총평가금액";
+            this.tbAcc총평가금액.PasswordChar = '\0';
+            this.tbAcc총평가금액.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbAcc총평가금액.SelectedText = "";
+            this.tbAcc총평가금액.SelectionLength = 0;
+            this.tbAcc총평가금액.SelectionStart = 0;
+            this.tbAcc총평가금액.ShortcutsEnabled = true;
+            this.tbAcc총평가금액.Size = new System.Drawing.Size(136, 23);
+            this.tbAcc총평가금액.TabIndex = 25;
+            this.tbAcc총평가금액.Text = "metroTextBox1";
+            this.tbAcc총평가금액.UseSelectable = true;
+            this.tbAcc총평가금액.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbAcc총평가금액.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // tbAcc총수익률
+            // 
+            // 
+            // 
+            // 
+            this.tbAcc총수익률.CustomButton.Image = null;
+            this.tbAcc총수익률.CustomButton.Location = new System.Drawing.Point(114, 1);
+            this.tbAcc총수익률.CustomButton.Name = "";
+            this.tbAcc총수익률.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbAcc총수익률.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbAcc총수익률.CustomButton.TabIndex = 1;
+            this.tbAcc총수익률.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbAcc총수익률.CustomButton.UseSelectable = true;
+            this.tbAcc총수익률.CustomButton.Visible = false;
+            this.tbAcc총수익률.Lines = new string[] {
+        "metroTextBox1"};
+            this.tbAcc총수익률.Location = new System.Drawing.Point(26, 381);
+            this.tbAcc총수익률.MaxLength = 32767;
+            this.tbAcc총수익률.Name = "tbAcc총수익률";
+            this.tbAcc총수익률.PasswordChar = '\0';
+            this.tbAcc총수익률.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbAcc총수익률.SelectedText = "";
+            this.tbAcc총수익률.SelectionLength = 0;
+            this.tbAcc총수익률.SelectionStart = 0;
+            this.tbAcc총수익률.ShortcutsEnabled = true;
+            this.tbAcc총수익률.Size = new System.Drawing.Size(136, 23);
+            this.tbAcc총수익률.TabIndex = 26;
+            this.tbAcc총수익률.Text = "metroTextBox1";
+            this.tbAcc총수익률.UseSelectable = true;
+            this.tbAcc총수익률.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbAcc총수익률.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // tbAcc총손익금
+            // 
+            // 
+            // 
+            // 
+            this.tbAcc총손익금.CustomButton.Image = null;
+            this.tbAcc총손익금.CustomButton.Location = new System.Drawing.Point(114, 1);
+            this.tbAcc총손익금.CustomButton.Name = "";
+            this.tbAcc총손익금.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbAcc총손익금.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbAcc총손익금.CustomButton.TabIndex = 1;
+            this.tbAcc총손익금.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbAcc총손익금.CustomButton.UseSelectable = true;
+            this.tbAcc총손익금.CustomButton.Visible = false;
+            this.tbAcc총손익금.Lines = new string[] {
+        "metroTextBox1"};
+            this.tbAcc총손익금.Location = new System.Drawing.Point(167, 381);
+            this.tbAcc총손익금.MaxLength = 32767;
+            this.tbAcc총손익금.Name = "tbAcc총손익금";
+            this.tbAcc총손익금.PasswordChar = '\0';
+            this.tbAcc총손익금.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbAcc총손익금.SelectedText = "";
+            this.tbAcc총손익금.SelectionLength = 0;
+            this.tbAcc총손익금.SelectionStart = 0;
+            this.tbAcc총손익금.ShortcutsEnabled = true;
+            this.tbAcc총손익금.Size = new System.Drawing.Size(136, 23);
+            this.tbAcc총손익금.TabIndex = 27;
+            this.tbAcc총손익금.Text = "metroTextBox1";
+            this.tbAcc총손익금.UseSelectable = true;
+            this.tbAcc총손익금.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbAcc총손익금.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // listviewAccStock
+            // 
+            this.listviewAccStock.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listviewAccStock.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.listviewAccStock.FullRowSelect = true;
+            this.listviewAccStock.GridLines = true;
+            this.listviewAccStock.Location = new System.Drawing.Point(26, 410);
+            this.listviewAccStock.MultiSelect = false;
+            this.listviewAccStock.Name = "listviewAccStock";
+            this.listviewAccStock.OwnerDraw = true;
+            this.listviewAccStock.Size = new System.Drawing.Size(332, 257);
+            this.listviewAccStock.TabIndex = 28;
+            this.listviewAccStock.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.listviewAccStock.UseCompatibleStateImageBehavior = false;
+            this.listviewAccStock.UseSelectable = true;
+            this.listviewAccStock.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "종목명";
+            this.columnHeader5.Width = 200;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "현재가";
+            this.columnHeader6.Width = 100;
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 661);
+            this.ClientSize = new System.Drawing.Size(1250, 680);
+            this.Controls.Add(this.listviewAccStock);
+            this.Controls.Add(this.tbAcc총손익금);
+            this.Controls.Add(this.tbAcc총수익률);
+            this.Controls.Add(this.tbAcc총평가금액);
+            this.Controls.Add(this.tbAcc예수금);
             this.Controls.Add(this.listviewStockResult);
             this.Controls.Add(this.richTextBoxLog);
             this.Controls.Add(this.bttnConditionSearchStart);
@@ -434,6 +603,13 @@
         private MetroFramework.Controls.MetroListView listviewStockResult;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private MetroFramework.Controls.MetroTextBox tbAcc예수금;
+        private MetroFramework.Controls.MetroTextBox tbAcc총평가금액;
+        private MetroFramework.Controls.MetroTextBox tbAcc총수익률;
+        private MetroFramework.Controls.MetroTextBox tbAcc총손익금;
+        private MetroFramework.Controls.MetroListView listviewAccStock;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 

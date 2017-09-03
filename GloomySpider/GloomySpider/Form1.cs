@@ -91,6 +91,10 @@ namespace GloomySpider
                     this.listviewStockResult.Items.Add(lv);
                 }
             }
+            else if (e.sRQName.Equals("계좌평가현황요청"))
+            {
+                this.tbAcc예수금.Text = this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예수금").Trim();
+            }
         }
 
         private void API_OnReceiveTrCondition(object sender, _DKHOpenAPIEvents_OnReceiveTrConditionEvent e)
@@ -122,12 +126,14 @@ namespace GloomySpider
             if (LogInResult == 0)
             {
                 Logger(Log.일반, "로그인창 열기 성공");
+                UpdateUserInformation();
+                GetAccountInfo();
             }
             else
             {
                 Logger(Log.에러, "로그인창 열기 실패");
             }
-            UpdateUserInformation();
+            
         }
         #endregion
 
@@ -234,6 +240,21 @@ namespace GloomySpider
         #endregion
 
         #region 사용자 함수
+
+        private void GetAccountInfo()
+        {
+            this.axKHOpenAPI.SetInputValue("계좌번호", this.tbAccount.Text);
+            this.axKHOpenAPI.SetInputValue("비밀번호", "1265");
+            this.axKHOpenAPI.SetInputValue("상장폐지조회구분", "0");
+            this.axKHOpenAPI.SetInputValue("비밀번호입력매체구분", "00");    
+
+
+            int result = this.axKHOpenAPI.CommRqData("계좌평가현황요청", "OPW00004", 0, GetScreenNum());
+            if (result == 1)
+                Logger(Log.조회, "계좌정보 조회 성공");
+            else
+                Logger(Log.조회, "계좌정보 조회 실패");
+        }
 
         /*  Parameter 설명
            거래유형 orderType :  1:신규매수, 2:신규매도 3:매수취소, 4:매도취소, 5:매수정정, 6:매도정정
