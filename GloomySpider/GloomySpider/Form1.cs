@@ -93,7 +93,24 @@ namespace GloomySpider
             }
             else if (e.sRQName.Equals("계좌평가현황요청"))
             {
-                this.tbAcc예수금.Text = this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예수금").Trim();
+                this.tbAcc예수금.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예수금").Trim()).ToString();
+                this.tbAcc총평가금액.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예탁자산평가액").Trim()).ToString();
+                this.tbAcc총수익률.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "누적손익율").Trim()).ToString();
+                this.tbAcc총손익금.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "누적투자손익").Trim()).ToString();
+
+                int count = axKHOpenAPI.GetRepeatCnt(e.sTrCode, e.sRQName);
+
+                for (int i = 0; i < count; i++)
+                {
+                    string stockName = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+                    string stockCurrentPrice = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
+                    ListViewItem lv = new ListViewItem(stockName);
+                    lv.SubItems.Add(stockCurrentPrice);
+                    lv.Tag = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+
+                    this.listviewAccStock.Items.Add(lv);
+                }
+                    Logger(Log.조회, "계좌정보 조회 성공");
             }
         }
 
@@ -237,6 +254,14 @@ namespace GloomySpider
             }
             sendOrderGS(1, tbStockCode.Text, int.Parse(tbOrderQty.Text), orderPrice, orderGb);
         }
+
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DisconnectAllRealData();
+            axKHOpenAPI.CommTerminate();
+            Logger(Log.일반, "로그아웃");
+        }
         #endregion
 
         #region 사용자 함수
@@ -244,16 +269,12 @@ namespace GloomySpider
         private void GetAccountInfo()
         {
             this.axKHOpenAPI.SetInputValue("계좌번호", this.tbAccount.Text);
-            this.axKHOpenAPI.SetInputValue("비밀번호", "1265");
+            this.axKHOpenAPI.SetInputValue("비밀번호", "");
             this.axKHOpenAPI.SetInputValue("상장폐지조회구분", "0");
             this.axKHOpenAPI.SetInputValue("비밀번호입력매체구분", "00");    
 
 
-            int result = this.axKHOpenAPI.CommRqData("계좌평가현황요청", "OPW00004", 0, GetScreenNum());
-            if (result == 1)
-                Logger(Log.조회, "계좌정보 조회 성공");
-            else
-                Logger(Log.조회, "계좌정보 조회 실패");
+            int result = this.axKHOpenAPI.CommRqData("계좌평가현황요청", "OPW00004", 0, "6001");
         }
 
         /*  Parameter 설명
@@ -347,8 +368,19 @@ namespace GloomySpider
         {
             this.richTextBoxLog.AppendText(type.ToString() + " : " + msg+"\n");
         }
-        #endregion
 
+
+        // 실시간 연결 종료
+        private void DisconnectAllRealData()
+        {
+            for (int i = _scrNum; i > 5000; i--)
+            {
+                axKHOpenAPI.DisconnectRealData(i.ToString());
+            }
+
+            _scrNum = 5000;
+        }
+        #endregion
 
     }
 }

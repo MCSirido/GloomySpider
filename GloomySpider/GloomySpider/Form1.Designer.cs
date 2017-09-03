@@ -60,6 +60,7 @@
             this.listviewAccStock = new MetroFramework.Controls.MetroListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnLogOut = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.SuspendLayout();
             // 
@@ -392,8 +393,7 @@
             this.tbAcc예수금.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.tbAcc예수금.CustomButton.UseSelectable = true;
             this.tbAcc예수금.CustomButton.Visible = false;
-            this.tbAcc예수금.Lines = new string[] {
-        "metroTextBox1"};
+            this.tbAcc예수금.Lines = new string[0];
             this.tbAcc예수금.Location = new System.Drawing.Point(26, 352);
             this.tbAcc예수금.MaxLength = 32767;
             this.tbAcc예수금.Name = "tbAcc예수금";
@@ -405,7 +405,6 @@
             this.tbAcc예수금.ShortcutsEnabled = true;
             this.tbAcc예수금.Size = new System.Drawing.Size(136, 23);
             this.tbAcc예수금.TabIndex = 24;
-            this.tbAcc예수금.Text = "metroTextBox1";
             this.tbAcc예수금.UseSelectable = true;
             this.tbAcc예수금.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tbAcc예수금.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -424,8 +423,7 @@
             this.tbAcc총평가금액.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.tbAcc총평가금액.CustomButton.UseSelectable = true;
             this.tbAcc총평가금액.CustomButton.Visible = false;
-            this.tbAcc총평가금액.Lines = new string[] {
-        "metroTextBox1"};
+            this.tbAcc총평가금액.Lines = new string[0];
             this.tbAcc총평가금액.Location = new System.Drawing.Point(168, 352);
             this.tbAcc총평가금액.MaxLength = 32767;
             this.tbAcc총평가금액.Name = "tbAcc총평가금액";
@@ -437,7 +435,6 @@
             this.tbAcc총평가금액.ShortcutsEnabled = true;
             this.tbAcc총평가금액.Size = new System.Drawing.Size(136, 23);
             this.tbAcc총평가금액.TabIndex = 25;
-            this.tbAcc총평가금액.Text = "metroTextBox1";
             this.tbAcc총평가금액.UseSelectable = true;
             this.tbAcc총평가금액.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tbAcc총평가금액.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -456,8 +453,7 @@
             this.tbAcc총수익률.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.tbAcc총수익률.CustomButton.UseSelectable = true;
             this.tbAcc총수익률.CustomButton.Visible = false;
-            this.tbAcc총수익률.Lines = new string[] {
-        "metroTextBox1"};
+            this.tbAcc총수익률.Lines = new string[0];
             this.tbAcc총수익률.Location = new System.Drawing.Point(26, 381);
             this.tbAcc총수익률.MaxLength = 32767;
             this.tbAcc총수익률.Name = "tbAcc총수익률";
@@ -469,7 +465,6 @@
             this.tbAcc총수익률.ShortcutsEnabled = true;
             this.tbAcc총수익률.Size = new System.Drawing.Size(136, 23);
             this.tbAcc총수익률.TabIndex = 26;
-            this.tbAcc총수익률.Text = "metroTextBox1";
             this.tbAcc총수익률.UseSelectable = true;
             this.tbAcc총수익률.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tbAcc총수익률.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -488,8 +483,7 @@
             this.tbAcc총손익금.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.tbAcc총손익금.CustomButton.UseSelectable = true;
             this.tbAcc총손익금.CustomButton.Visible = false;
-            this.tbAcc총손익금.Lines = new string[] {
-        "metroTextBox1"};
+            this.tbAcc총손익금.Lines = new string[0];
             this.tbAcc총손익금.Location = new System.Drawing.Point(167, 381);
             this.tbAcc총손익금.MaxLength = 32767;
             this.tbAcc총손익금.Name = "tbAcc총손익금";
@@ -501,7 +495,6 @@
             this.tbAcc총손익금.ShortcutsEnabled = true;
             this.tbAcc총손익금.Size = new System.Drawing.Size(136, 23);
             this.tbAcc총손익금.TabIndex = 27;
-            this.tbAcc총손익금.Text = "metroTextBox1";
             this.tbAcc총손익금.UseSelectable = true;
             this.tbAcc총손익금.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tbAcc총손익금.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -535,11 +528,22 @@
             this.columnHeader6.Text = "현재가";
             this.columnHeader6.Width = 100;
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(115, 72);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(83, 26);
+            this.btnLogOut.TabIndex = 29;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseSelectable = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1250, 680);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.listviewAccStock);
             this.Controls.Add(this.tbAcc총손익금);
             this.Controls.Add(this.tbAcc총수익률);
@@ -610,6 +614,7 @@
         private MetroFramework.Controls.MetroListView listviewAccStock;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private MetroFramework.Controls.MetroButton btnLogOut;
     }
 }
 
