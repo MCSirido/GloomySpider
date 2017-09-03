@@ -93,9 +93,11 @@ namespace GloomySpider
             }
             else if (e.sRQName.Equals("계좌평가현황요청"))
             {
+                this.listviewAccStock.Items.Clear();
+
                 this.tbAcc예수금.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예수금").Trim()).ToString();
                 this.tbAcc총평가금액.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예탁자산평가액").Trim()).ToString();
-                this.tbAcc총수익률.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "누적손익율").Trim()).ToString();
+                this.tbAcc총수익률.Text = double.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "누적손익율").Trim()).ToString("0.000");
                 this.tbAcc총손익금.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "누적투자손익").Trim()).ToString();
 
                 int count = axKHOpenAPI.GetRepeatCnt(e.sTrCode, e.sRQName);
@@ -103,10 +105,14 @@ namespace GloomySpider
                 for (int i = 0; i < count; i++)
                 {
                     string stockName = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
-                    string stockCurrentPrice = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
+                    string stockCode = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+                    string stockCurrentPrice = Int32.Parse(axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim()).ToString();
+                    string stockCurrentMargin = double.Parse(axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "손익율").Trim()).ToString();
+
                     ListViewItem lv = new ListViewItem(stockName);
                     lv.SubItems.Add(stockCurrentPrice);
-                    lv.Tag = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+                    lv.SubItems.Add(stockCurrentMargin);
+                    lv.Tag = stockCode;
 
                     this.listviewAccStock.Items.Add(lv);
                 }
@@ -127,12 +133,11 @@ namespace GloomySpider
             }
 
             int count = codeList.Trim().Split(';').Length;
-            Logger(Log.일반, codeList);
 
             if (e.nNext == 2)
             {
                 axKHOpenAPI.SendCondition(e.sScrNo, e.strConditionName, e.nIndex, 2);
-                Logger(Log.일반, codeList);
+                //Logger(Log.일반, codeList);
             }
 
             axKHOpenAPI.CommKwRqData(codeList, 0, count, 0, "조건검색결과", GetScreenNum());
@@ -275,7 +280,6 @@ namespace GloomySpider
             this.axKHOpenAPI.SetInputValue("상장폐지조회구분", "0");
             this.axKHOpenAPI.SetInputValue("비밀번호입력매체구분", "00");    
 
-
             int result = this.axKHOpenAPI.CommRqData("계좌평가현황요청", "OPW00004", 0, "6001");
         }
 
@@ -371,7 +375,6 @@ namespace GloomySpider
             this.richTextBoxLog.AppendText(type.ToString() + " : " + msg+"\n");
         }
 
-
         // 실시간 연결 종료
         private void DisconnectAllRealData()
         {
@@ -384,5 +387,28 @@ namespace GloomySpider
         }
         #endregion
 
+        private void listviewStockResult_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(this.listviewStockResult.SelectedItems.Count>0)
+            {
+                string stockCode = (string)this.listviewStockResult.SelectedItems[0].Tag;
+                string currentPirce = Int32.Parse(this.listviewStockResult.SelectedItems[0].SubItems[1].Text).ToString();
+
+                this.tbStockCode.Text = stockCode;
+                this.tbOrderPrice.Text = currentPirce;
+            }
+        }
+
+        private void listviewAccStock_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.listviewAccStock.SelectedItems.Count > 0)
+            {
+                string stockCode = (string)this.listviewAccStock.SelectedItems[0].Tag;
+                string currentPirce = Int32.Parse(this.listviewAccStock.SelectedItems[0].SubItems[1].Text).ToString();
+
+                this.tbStockCode.Text = stockCode;
+                this.tbOrderPrice.Text = currentPirce;
+            }
+        }
     }
 }
