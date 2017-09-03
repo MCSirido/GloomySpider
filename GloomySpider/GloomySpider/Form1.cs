@@ -108,10 +108,12 @@ namespace GloomySpider
                     string stockCode = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
                     string stockCurrentPrice = Int32.Parse(axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim()).ToString();
                     string stockCurrentMargin =axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "손익율").Trim();
+                    string stockLoanDate = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "대출일").Trim();
 
                     ListViewItem lv = new ListViewItem(stockName);
                     lv.SubItems.Add(stockCurrentPrice);
                     lv.SubItems.Add(stockCurrentMargin);
+                    lv.SubItems.Add(stockLoanDate);
                     lv.Tag = stockCode;
 
                     this.listviewAccStock.Items.Add(lv);
@@ -403,6 +405,12 @@ namespace GloomySpider
         {
             if(this.listviewStockResult.SelectedItems.Count>0)
             {
+                if (listviewAccStock.FocusedItem != null)
+                {
+                    int index = listviewAccStock.FocusedItem.Index;
+                    listviewAccStock.Items.RemoveAt(index);
+                }
+
                 string stockCode = (string)this.listviewStockResult.SelectedItems[0].Tag;
                 string currentPirce = Int32.Parse(this.listviewStockResult.SelectedItems[0].SubItems[1].Text).ToString();
 
@@ -413,7 +421,20 @@ namespace GloomySpider
 
         private void listviewAccStock_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (this.listviewAccStock.SelectedItems.Count > 0)
+            {
+                if (listviewStockResult.FocusedItem != null)
+                {
+                    int index = listviewStockResult.FocusedItem.Index;
+                    listviewStockResult.Items.RemoveAt(index);
+                }
 
+                string stockCode = (string)this.listviewAccStock.SelectedItems[0].Tag;
+                string currentPirce = Int32.Parse(this.listviewAccStock.SelectedItems[0].SubItems[1].Text).ToString();
+
+                this.tbStockCode.Text = stockCode;
+                this.tbOrderPrice.Text = currentPirce;
+            }
         }
         private void btnPossibleCnt_Click(object sender, EventArgs e)
         {
@@ -433,6 +454,11 @@ namespace GloomySpider
             {
                 this.axKHOpenAPI.CommRqData("신용보증금율별주문가능수량조회요청", "opw00012", 0, "0399");
             }
+        }
+
+        private void btn계좌정보조회_Click(object sender, EventArgs e)
+        {
+            GetAccountInfo();
         }
     }
 }
