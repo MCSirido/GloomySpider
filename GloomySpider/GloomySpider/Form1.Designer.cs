@@ -65,7 +65,6 @@
             this.metroRadioButton3 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton4 = new MetroFramework.Controls.MetroRadioButton();
             this.btnPossibleCnt = new MetroFramework.Controls.MetroButton();
-            this.btnLogOut = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -354,7 +353,7 @@
             // 
             this.richTextBoxLog.Location = new System.Drawing.Point(741, 72);
             this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.Size = new System.Drawing.Size(463, 563);
+            this.richTextBoxLog.Size = new System.Drawing.Size(463, 595);
             this.richTextBoxLog.TabIndex = 22;
             this.richTextBoxLog.Text = "";
             // 
@@ -370,7 +369,7 @@
             this.listviewStockResult.MultiSelect = false;
             this.listviewStockResult.Name = "listviewStockResult";
             this.listviewStockResult.OwnerDraw = true;
-            this.listviewStockResult.Size = new System.Drawing.Size(332, 257);
+            this.listviewStockResult.Size = new System.Drawing.Size(332, 315);
             this.listviewStockResult.TabIndex = 23;
             this.listviewStockResult.Theme = MetroFramework.MetroThemeStyle.Light;
             this.listviewStockResult.UseCompatibleStateImageBehavior = false;
@@ -593,7 +592,6 @@
             this.Controls.Add(this.btnPossibleCnt);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.metroLabel6);
-            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.listviewAccStock);
             this.Controls.Add(this.tbAcc총손익금);
             this.Controls.Add(this.tbAcc총수익률);
@@ -619,7 +617,7 @@
             this.Controls.Add(this.listviewConditionSearchList);
             this.Controls.Add(this.bttnStart);
             this.Controls.Add(this.axKHOpenAPI);
-            this.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.Font = new System.Drawing.Font("Malgun Gothic", 10F);
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "MainFrom";
