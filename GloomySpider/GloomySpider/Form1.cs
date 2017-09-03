@@ -235,6 +235,8 @@ namespace GloomySpider
                 Logger(Log.일반, "조건 검색 결과 불러오기 완료");
             else
                 Logger(Log.에러, "조건 검색 결과 불러오기 실패");
+
+
         }
 
 
