@@ -434,7 +434,7 @@ namespace GloomySpider
         {
             if(this.listviewStockResult.SelectedItems.Count>0)
             {
-                if (listviewAccStock.FocusedItem != null)
+                if (listviewAccStock.SelectedItems.Count>0)
                 {
                     int index = listviewAccStock.FocusedItem.Index;
                     listviewAccStock.SelectedItems[index].Selected = false;
@@ -452,7 +452,7 @@ namespace GloomySpider
         {
             if (this.listviewAccStock.SelectedItems.Count > 0)
             {
-                if (listviewStockResult.FocusedItem != null)
+                if (listviewStockResult.SelectedItems.Count>0)
                 {
                     int index = listviewStockResult.FocusedItem.Index;
                     listviewStockResult.SelectedItems[index].Selected = false;
