@@ -452,10 +452,10 @@ namespace GloomySpider
         {
             if (this.listviewAccStock.SelectedItems.Count > 0)
             {
-                if (listviewStockResult.FocusedItem != null)
+                if (listviewStockResult.SelectedItems != null)
                 {
                     int index = listviewStockResult.FocusedItem.Index;
-                    listviewAccStock.SelectedItems[index].Selected = false;
+                    listviewStockResult.SelectedItems[index].Selected = false;
                 }
 
                 string stockCode = (string)this.listviewAccStock.SelectedItems[0].Tag;
