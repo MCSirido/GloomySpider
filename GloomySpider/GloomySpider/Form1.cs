@@ -107,7 +107,7 @@ namespace GloomySpider
                     string stockName = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
                     string stockCode = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
                     string stockCurrentPrice = Int32.Parse(axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim()).ToString();
-                    string stockCurrentMargin = double.Parse(axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "손익율").Trim()).ToString();
+                    string stockCurrentMargin =axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "손익율").Trim();
 
                     ListViewItem lv = new ListViewItem(stockName);
                     lv.SubItems.Add(stockCurrentPrice);
@@ -401,14 +401,7 @@ namespace GloomySpider
 
         private void listviewAccStock_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.listviewAccStock.SelectedItems.Count > 0)
-            {
-                string stockCode = (string)this.listviewAccStock.SelectedItems[0].Tag;
-                string currentPirce = Int32.Parse(this.listviewAccStock.SelectedItems[0].SubItems[1].Text).ToString();
 
-                this.tbStockCode.Text = stockCode;
-                this.tbOrderPrice.Text = currentPirce;
-            }
         }
     }
 }
