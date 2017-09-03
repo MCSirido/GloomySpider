@@ -118,6 +118,18 @@ namespace GloomySpider
                 }
                     Logger(Log.조회, "계좌정보 조회 성공");
             }
+            else if (e.sRQName.Equals("증거금율별주문가능수량조회요청"))
+            {
+                this.tbOrderQty.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "증거금100주문가능수량").Trim()).ToString();
+
+                Logger(Log.조회, "증거금율별주문가능수량조회요청 성공");
+            }
+            else if (e.sRQName.Equals("신용보증금율별주문가능수량조회요청"))
+            {
+                this.tbOrderQty.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "보증금40주문가능수량").Trim()).ToString();
+
+                Logger(Log.조회, "신용보증금율별주문가능수량조회요청 성공");
+            }
         }
 
         private void API_OnReceiveTrCondition(object sender, _DKHOpenAPIEvents_OnReceiveTrConditionEvent e)
@@ -402,6 +414,25 @@ namespace GloomySpider
         private void listviewAccStock_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void btnPossibleCnt_Click(object sender, EventArgs e)
+        {
+            this.axKHOpenAPI.SetInputValue("계좌번호", this.tbAccount.Text);
+            this.axKHOpenAPI.SetInputValue("비밀번호", "");
+            this.axKHOpenAPI.SetInputValue("비밀번호입력매체구분", "00");
+            this.axKHOpenAPI.SetInputValue("종목번호",this.tbStockCode.Text);
+            this.axKHOpenAPI.SetInputValue("매수가격", this.tbOrderPrice.Text);
+
+
+            if (metroRadioButton4.Checked)
+            {
+                this.axKHOpenAPI.CommRqData("증거금율별주문가능수량조회요청", "opw00011", 0, "0399");
+            }
+
+            if (metroRadioButton3.Checked)
+            {
+                this.axKHOpenAPI.CommRqData("신용보증금율별주문가능수량조회요청", "opw00012", 0, "0399");
+            }
         }
     }
 }

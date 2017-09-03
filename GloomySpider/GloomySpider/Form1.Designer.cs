@@ -587,6 +587,7 @@
             this.btnPossibleCnt.TabIndex = 31;
             this.btnPossibleCnt.Text = "가능수량";
             this.btnPossibleCnt.UseSelectable = true;
+            this.btnPossibleCnt.Click += new System.EventHandler(this.btnPossibleCnt_Click);
             // 
             // columnHeader7
             // 
@@ -626,7 +627,7 @@
             this.Controls.Add(this.listviewConditionSearchList);
             this.Controls.Add(this.bttnStart);
             this.Controls.Add(this.axKHOpenAPI);
-            this.Font = new System.Drawing.Font("Malgun Gothic", 10F);
+            this.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "MainFrom";
