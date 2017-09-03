@@ -114,7 +114,7 @@ namespace GloomySpider
                 for (int i = 0; i < count; i++)
                 {
                     string stockName = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
-                    string stockCode = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+                    string stockCode = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim().Replace("A","");
                     string stockCurrentPrice = Int32.Parse(axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim()).ToString();
                     string stockCurrentMargin =axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "손익율").Trim();
                     string stockLoanDate = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "대출일").Trim();
