@@ -69,6 +69,8 @@
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.btn계좌정보조회 = new MetroFramework.Controls.MetroButton();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tbLoanDate = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -357,7 +359,7 @@
             // 
             this.richTextBoxLog.Location = new System.Drawing.Point(800, 72);
             this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.Size = new System.Drawing.Size(463, 615);
+            this.richTextBoxLog.Size = new System.Drawing.Size(463, 652);
             this.richTextBoxLog.TabIndex = 22;
             this.richTextBoxLog.Text = "";
             // 
@@ -369,11 +371,11 @@
             this.listviewStockResult.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.listviewStockResult.FullRowSelect = true;
             this.listviewStockResult.GridLines = true;
-            this.listviewStockResult.Location = new System.Drawing.Point(462, 372);
+            this.listviewStockResult.Location = new System.Drawing.Point(461, 346);
             this.listviewStockResult.MultiSelect = false;
             this.listviewStockResult.Name = "listviewStockResult";
             this.listviewStockResult.OwnerDraw = true;
-            this.listviewStockResult.Size = new System.Drawing.Size(332, 315);
+            this.listviewStockResult.Size = new System.Drawing.Size(332, 378);
             this.listviewStockResult.TabIndex = 23;
             this.listviewStockResult.Theme = MetroFramework.MetroThemeStyle.Light;
             this.listviewStockResult.UseCompatibleStateImageBehavior = false;
@@ -406,7 +408,7 @@
             this.tbAcc예수금.CustomButton.UseSelectable = true;
             this.tbAcc예수금.CustomButton.Visible = false;
             this.tbAcc예수금.Lines = new string[0];
-            this.tbAcc예수금.Location = new System.Drawing.Point(26, 372);
+            this.tbAcc예수금.Location = new System.Drawing.Point(26, 407);
             this.tbAcc예수금.MaxLength = 32767;
             this.tbAcc예수금.Name = "tbAcc예수금";
             this.tbAcc예수금.PasswordChar = '\0';
@@ -436,7 +438,7 @@
             this.tbAcc총평가금액.CustomButton.UseSelectable = true;
             this.tbAcc총평가금액.CustomButton.Visible = false;
             this.tbAcc총평가금액.Lines = new string[0];
-            this.tbAcc총평가금액.Location = new System.Drawing.Point(168, 372);
+            this.tbAcc총평가금액.Location = new System.Drawing.Point(168, 407);
             this.tbAcc총평가금액.MaxLength = 32767;
             this.tbAcc총평가금액.Name = "tbAcc총평가금액";
             this.tbAcc총평가금액.PasswordChar = '\0';
@@ -466,7 +468,7 @@
             this.tbAcc총수익률.CustomButton.UseSelectable = true;
             this.tbAcc총수익률.CustomButton.Visible = false;
             this.tbAcc총수익률.Lines = new string[0];
-            this.tbAcc총수익률.Location = new System.Drawing.Point(26, 401);
+            this.tbAcc총수익률.Location = new System.Drawing.Point(26, 436);
             this.tbAcc총수익률.MaxLength = 32767;
             this.tbAcc총수익률.Name = "tbAcc총수익률";
             this.tbAcc총수익률.PasswordChar = '\0';
@@ -496,7 +498,7 @@
             this.tbAcc총손익금.CustomButton.UseSelectable = true;
             this.tbAcc총손익금.CustomButton.Visible = false;
             this.tbAcc총손익금.Lines = new string[0];
-            this.tbAcc총손익금.Location = new System.Drawing.Point(167, 401);
+            this.tbAcc총손익금.Location = new System.Drawing.Point(167, 436);
             this.tbAcc총손익금.MaxLength = 32767;
             this.tbAcc총손익금.Name = "tbAcc총손익금";
             this.tbAcc총손익금.PasswordChar = '\0';
@@ -521,7 +523,7 @@
             this.listviewAccStock.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.listviewAccStock.FullRowSelect = true;
             this.listviewAccStock.GridLines = true;
-            this.listviewAccStock.Location = new System.Drawing.Point(26, 430);
+            this.listviewAccStock.Location = new System.Drawing.Point(25, 467);
             this.listviewAccStock.MultiSelect = false;
             this.listviewAccStock.Name = "listviewAccStock";
             this.listviewAccStock.OwnerDraw = true;
@@ -592,7 +594,7 @@
             // 
             this.btnPossibleCnt.Location = new System.Drawing.Point(253, 295);
             this.btnPossibleCnt.Name = "btnPossibleCnt";
-            this.btnPossibleCnt.Size = new System.Drawing.Size(107, 30);
+            this.btnPossibleCnt.Size = new System.Drawing.Size(107, 53);
             this.btnPossibleCnt.TabIndex = 31;
             this.btnPossibleCnt.Text = "가능수량";
             this.btnPossibleCnt.UseSelectable = true;
@@ -601,7 +603,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(26, 346);
+            this.metroLabel7.Location = new System.Drawing.Point(26, 381);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(92, 20);
             this.metroLabel7.TabIndex = 32;
@@ -609,7 +611,7 @@
             // 
             // btn계좌정보조회
             // 
-            this.btn계좌정보조회.Location = new System.Drawing.Point(124, 340);
+            this.btn계좌정보조회.Location = new System.Drawing.Point(124, 375);
             this.btn계좌정보조회.Name = "btn계좌정보조회";
             this.btn계좌정보조회.Size = new System.Drawing.Size(174, 26);
             this.btn계좌정보조회.TabIndex = 33;
@@ -622,11 +624,52 @@
             this.columnHeader8.Text = "대출일";
             this.columnHeader8.Width = 100;
             // 
+            // tbLoanDate
+            // 
+            // 
+            // 
+            // 
+            this.tbLoanDate.CustomButton.Image = null;
+            this.tbLoanDate.CustomButton.Location = new System.Drawing.Point(126, 1);
+            this.tbLoanDate.CustomButton.Name = "";
+            this.tbLoanDate.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbLoanDate.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbLoanDate.CustomButton.TabIndex = 1;
+            this.tbLoanDate.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbLoanDate.CustomButton.UseSelectable = true;
+            this.tbLoanDate.CustomButton.Visible = false;
+            this.tbLoanDate.Lines = new string[0];
+            this.tbLoanDate.Location = new System.Drawing.Point(99, 327);
+            this.tbLoanDate.MaxLength = 32767;
+            this.tbLoanDate.Name = "tbLoanDate";
+            this.tbLoanDate.PasswordChar = '\0';
+            this.tbLoanDate.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbLoanDate.SelectedText = "";
+            this.tbLoanDate.SelectionLength = 0;
+            this.tbLoanDate.SelectionStart = 0;
+            this.tbLoanDate.ShortcutsEnabled = true;
+            this.tbLoanDate.Size = new System.Drawing.Size(148, 23);
+            this.tbLoanDate.TabIndex = 35;
+            this.tbLoanDate.UseSelectable = true;
+            this.tbLoanDate.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbLoanDate.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(26, 328);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(54, 20);
+            this.metroLabel8.TabIndex = 34;
+            this.metroLabel8.Text = "대출일";
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 700);
+            this.ClientSize = new System.Drawing.Size(1270, 730);
+            this.Controls.Add(this.tbLoanDate);
+            this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.btn계좌정보조회);
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.btnPossibleCnt);
@@ -713,6 +756,8 @@
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroButton btn계좌정보조회;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private MetroFramework.Controls.MetroTextBox tbLoanDate;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
     }
 }
 

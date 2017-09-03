@@ -360,7 +360,7 @@ namespace GloomySpider
                             orderPrice,      // 주문가격 
                             orderGb,    // 거래구분 (시장가)
                             creditYn?"03":"33",
-                            creditYn?"":"",
+                            creditYn?"":this.tbLoanDate.Text,
                             orgOrderNo);    // 원주문 번호
             }
             else
@@ -437,7 +437,7 @@ namespace GloomySpider
                 if (listviewAccStock.FocusedItem != null)
                 {
                     int index = listviewAccStock.FocusedItem.Index;
-                    listviewAccStock.Items.RemoveAt(index);
+                    listviewAccStock.SelectedItems[index].Selected = false;
                 }
 
                 string stockCode = (string)this.listviewStockResult.SelectedItems[0].Tag;
@@ -455,14 +455,16 @@ namespace GloomySpider
                 if (listviewStockResult.FocusedItem != null)
                 {
                     int index = listviewStockResult.FocusedItem.Index;
-                    listviewStockResult.Items.RemoveAt(index);
+                    listviewAccStock.SelectedItems[index].Selected = false;
                 }
 
                 string stockCode = (string)this.listviewAccStock.SelectedItems[0].Tag;
                 string currentPirce = Int32.Parse(this.listviewAccStock.SelectedItems[0].SubItems[1].Text).ToString();
+                string stockLoanDate = this.listviewAccStock.SelectedItems[0].SubItems[2].Text;
 
                 this.tbStockCode.Text = stockCode;
                 this.tbOrderPrice.Text = currentPirce;
+                this.tbLoanDate.Text = stockLoanDate;
             }
         }
         private void btnPossibleCnt_Click(object sender, EventArgs e)
