@@ -436,8 +436,7 @@ namespace GloomySpider
             {
                 if (listviewAccStock.SelectedItems.Count>0)
                 {
-                    int index = listviewAccStock.FocusedItem.Index;
-                    listviewAccStock.SelectedItems[index].Selected = false;
+                    listviewAccStock.SelectedItems[0].Selected = false;
                 }
 
                 string stockCode = (string)this.listviewStockResult.SelectedItems[0].Tag;
@@ -454,8 +453,7 @@ namespace GloomySpider
             {
                 if (listviewStockResult.SelectedItems.Count>0)
                 {
-                    int index = listviewStockResult.FocusedItem.Index;
-                    listviewStockResult.SelectedItems[index].Selected = false;
+                    listviewStockResult.SelectedItems[0].Selected = false;
                 }
 
                 string stockCode = (string)this.listviewAccStock.SelectedItems[0].Tag;
