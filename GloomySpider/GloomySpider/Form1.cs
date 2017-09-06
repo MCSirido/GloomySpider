@@ -113,7 +113,7 @@ namespace GloomySpider
                 for (int i = 0; i < count; i++)
                 {
                     OPW00004_계좌평가현황요청_Multi OPW00004_data = new OPW00004_계좌평가현황요청_Multi();
-                    OPW00004_data.종목코드 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim().Replace("A","");
+                    OPW00004_data.종목코드 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
                     OPW00004_data.종목명 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
                     OPW00004_data.보유수량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "보유수량").Trim();
                     OPW00004_data.평균단가 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "평균단가").Trim();

@@ -14,7 +14,17 @@ namespace GloomySpider
         실시간    // 실시간창 출력
     }
 
-    class OPW00004_계좌평가현황요청_Multi
+    class OPW00004_계좌평가현황요청_Single
+    {
+        private string _예수금;
+        private string _유가잔고평가액;
+        private string _예탁자산평가액;
+        private string _총매입금액;
+        private string _평가금액;
+        private string _현재가;
+    }
+
+        class OPW00004_계좌평가현황요청_Multi
     {
         private string _종목코드;
         private string _종목명;
@@ -32,13 +42,21 @@ namespace GloomySpider
         private string _금일매수수량;
         private string _금일매도수량;
 
-        public string 종목코드 { get => _종목코드; set => _종목코드 = value; }
+        public string 종목코드 { get => _종목코드.Replace("A","").TrimStart('0'); set => _종목코드 = value; }
         public string 종목명 { get => _종목명; set => _종목명 = value; }
-        public string 보유수량 { get => _보유수량; set => _보유수량 = value; }
-        public string 평균단가 { get => _평균단가; set => _평균단가 = value; }
-        public string 평가금액 { get => _평가금액; set => _평가금액 = value; }
-        public string 손익금액 { get => _손익금액; set => _손익금액 = value; }
-        public string 손익율 { get => _손익율; set => _손익율 = value; }
+        public string 보유수량 { get => _보유수량.TrimStart('0'); set => _보유수량 = value; }
+        public string 평균단가 { get => _평균단가.TrimStart('0'); set => _평균단가 = value; }
+        public string 평가금액 { get => _평가금액.TrimStart('0'); set => _평가금액 = value; }
+        public string 손익금액
+        {
+            get => _손익금액.Substring(0,1).Equals("-")? "-"+_손익금액.Remove(0,1).TrimStart('0'): _손익금액.TrimStart('0');
+            set => _손익금액 = value;
+        }
+        public string 손익율
+        {
+            get => _손익율.Substring(0, 1).Equals("-") ? "-" + _손익율.Remove(0, 1).TrimStart('0') : _손익율.TrimStart('0');
+            set => _손익율 = value;
+        }
         public string 대출일 { get => _대출일; set => _대출일 = value; }
         public string 매입금액 { get => _매입금액; set => _매입금액 = value; }
         public string 결제잔고 { get => _결제잔고; set => _결제잔고 = value; }
