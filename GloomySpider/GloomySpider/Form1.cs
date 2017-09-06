@@ -85,7 +85,6 @@ namespace GloomySpider
         {
             if (e.sRQName.Equals("조건검색결과"))
             {
-                this.listviewStockResult.Items.Clear();
                 int count = axKHOpenAPI.GetRepeatCnt(e.sTrCode, e.sRQName);
 
                 for (int i = 0; i < count; i++)
@@ -97,12 +96,11 @@ namespace GloomySpider
                     lv.SubItems.Add(stockCurrentPrice);
                     lv.Tag = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
 
-                    this.listviewStockResult.Items.Add(lv);
                 }
             }
             else if (e.sRQName.Equals("계좌평가현황요청"))
             {
-                this.listviewAccStock.Items.Clear();
+                this.dataGridViewAccInfo.Rows.Clear();
 
                 this.tbAcc예수금.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예수금").Trim()).ToString();
                 this.tbAcc총평가금액.Text = Int32.Parse(this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예탁자산평가액").Trim()).ToString();
@@ -111,22 +109,25 @@ namespace GloomySpider
 
                 int count = axKHOpenAPI.GetRepeatCnt(e.sTrCode, e.sRQName);
 
+                List<OPW00004_계좌평가현황요청_Multi> OPW00004_dataList = new List<OPW00004_계좌평가현황요청_Multi>();
                 for (int i = 0; i < count; i++)
                 {
-                    string stockName = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
-                    string stockCode = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim().Replace("A","");
-                    string stockCurrentPrice = Int32.Parse(axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim()).ToString();
-                    string stockCurrentMargin =axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "손익율").Trim();
-                    string stockLoanDate = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "대출일").Trim();
+                    OPW00004_계좌평가현황요청_Multi OPW00004_data = new OPW00004_계좌평가현황요청_Multi();
+                    OPW00004_data.종목코드 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim().Replace("A","");
+                    OPW00004_data.종목명 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+                    OPW00004_data.보유수량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "보유수량").Trim();
+                    OPW00004_data.평균단가 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "평균단가").Trim();
+                    OPW00004_data.현재가 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
+                    OPW00004_data.평가금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "평가금액").Trim();
+                    OPW00004_data.손익금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "손익금액").Trim();
+                    OPW00004_data.손익율 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "손익율").Trim();
+                    OPW00004_data.대출일 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "대출일").Trim();
+                    OPW00004_data.매입금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "매입금액").Trim();
 
-                    ListViewItem lv = new ListViewItem(stockName);
-                    lv.SubItems.Add(stockCurrentPrice);
-                    lv.SubItems.Add(stockCurrentMargin);
-                    lv.SubItems.Add(stockLoanDate);
-                    lv.Tag = stockCode;
-
-                    this.listviewAccStock.Items.Add(lv);
+                    OPW00004_dataList.Add(OPW00004_data);
                 }
+
+                this.dataGridViewAccInfo.DataSource = OPW00004_dataList;
                     Logger(Log.조회, "계좌정보 조회 성공");
             }
             else if (e.sRQName.Equals("증거금율별주문가능수량조회요청"))
@@ -430,41 +431,6 @@ namespace GloomySpider
         }
         #endregion
 
-        private void listviewStockResult_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(this.listviewStockResult.SelectedItems.Count>0)
-            {
-                if (listviewAccStock.SelectedItems.Count>0)
-                {
-                    listviewAccStock.SelectedItems[0].Selected = false;
-                }
-
-                string stockCode = (string)this.listviewStockResult.SelectedItems[0].Tag;
-                string currentPirce = Int32.Parse(this.listviewStockResult.SelectedItems[0].SubItems[1].Text).ToString();
-
-                this.tbStockCode.Text = stockCode;
-                this.tbOrderPrice.Text = currentPirce;
-            }
-        }
-
-        private void listviewAccStock_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.listviewAccStock.SelectedItems.Count > 0)
-            {
-                if (listviewStockResult.SelectedItems.Count>0)
-                {
-                    listviewStockResult.SelectedItems[0].Selected = false;
-                }
-
-                string stockCode = (string)this.listviewAccStock.SelectedItems[0].Tag;
-                string currentPirce = Int32.Parse(this.listviewAccStock.SelectedItems[0].SubItems[1].Text).ToString();
-                string stockLoanDate = this.listviewAccStock.SelectedItems[0].SubItems[3].Text;
-
-                this.tbStockCode.Text = stockCode;
-                this.tbOrderPrice.Text = currentPirce;
-                this.tbLoanDate.Text = stockLoanDate;
-            }
-        }
         private void btnPossibleCnt_Click(object sender, EventArgs e)
         {
             this.axKHOpenAPI.SetInputValue("계좌번호", this.tbAccount.Text);

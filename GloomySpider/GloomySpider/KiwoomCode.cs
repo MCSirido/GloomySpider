@@ -14,6 +14,41 @@ namespace GloomySpider
         실시간    // 실시간창 출력
     }
 
+    class OPW00004_계좌평가현황요청_Multi
+    {
+        private string _종목코드;
+        private string _종목명;
+        private string _보유수량;
+        private string _평균단가;
+        private string _평가금액;
+        private string _현재가;
+        private string _손익금액;
+        private string _손익율 ;
+        private string _대출일;
+        private string _매입금액;
+        private string _결제잔고;
+        private string _전일매수수량;
+        private string _전일매도수량;
+        private string _금일매수수량;
+        private string _금일매도수량;
+
+        public string 종목코드 { get => _종목코드; set => _종목코드 = value; }
+        public string 종목명 { get => _종목명; set => _종목명 = value; }
+        public string 보유수량 { get => _보유수량; set => _보유수량 = value; }
+        public string 평균단가 { get => _평균단가; set => _평균단가 = value; }
+        public string 평가금액 { get => _평가금액; set => _평가금액 = value; }
+        public string 손익금액 { get => _손익금액; set => _손익금액 = value; }
+        public string 손익율 { get => _손익율; set => _손익율 = value; }
+        public string 대출일 { get => _대출일; set => _대출일 = value; }
+        public string 매입금액 { get => _매입금액; set => _매입금액 = value; }
+        public string 결제잔고 { get => _결제잔고; set => _결제잔고 = value; }
+        public string 전일매수수량 { get => _전일매수수량; set => _전일매수수량 = value; }
+        public string 전일매도수량 { get => _전일매도수량; set => _전일매도수량 = value; }
+        public string 금일매수수량 { get => _금일매수수량; set => _금일매수수량 = value; }
+        public string 금일매도수량 { get => _금일매도수량; set => _금일매도수량 = value; }
+        public string 현재가 { get => _현재가; set => _현재가 = value; }
+    }
+
     class KOAErrorCode
     {
         public const int OP_ERR_NONE = 0;     //"정상처리"
