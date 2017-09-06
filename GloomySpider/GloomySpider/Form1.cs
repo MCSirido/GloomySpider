@@ -359,8 +359,8 @@ namespace GloomySpider
                             orderQty,      // 주문수량
                             orderPrice,      // 주문가격 
                             orderGb,    // 거래구분 (시장가)
-                            creditYn?"03":"33",
-                            creditYn?"":this.tbLoanDate.Text,
+                            orderType % 2 == 1 ? "03":"33",
+                            orderType % 2 == 1 ? "":this.tbLoanDate.Text,
                             orgOrderNo);    // 원주문 번호
             }
             else
