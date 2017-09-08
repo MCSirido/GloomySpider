@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GloomySpider
 {
-    public static class KiwoomUtil
+    public static class GloomyUtil
     {
         public static string ToPersentage(this string data)
         {
@@ -17,7 +17,7 @@ namespace GloomySpider
             }
             else
             {
-                result = double.Parse(data.TrimStart('0')).ToString("0.00");
+                result = "+"+double.Parse(data.TrimStart('0')).ToString("0.00");
             }
             return result;
         }
@@ -31,7 +31,7 @@ namespace GloomySpider
             }
             else
             {
-                result = data.TrimStart('0');
+                result = "+"+data.TrimStart('0');
             }
             return result;
         }

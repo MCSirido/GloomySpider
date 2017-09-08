@@ -14,17 +14,134 @@ namespace GloomySpider
         실시간    // 실시간창 출력
     }
 
-    class OPW00004_계좌평가현황요청_Single
+    public class OPW00018_계좌평가잔고내역요청
+    {
+        private string _RQName = "계좌평가잔고내역요청";
+        private string _RQCode = "OPW00018";
+
+        private string _계좌번호;
+        private string _비밀번호;
+        private string _비밀번호입력매체구분;
+        private string _조회구분;
+
+        public string RQName { get => _RQName; }
+        public string RQCode { get => _RQCode; }
+
+        public string 계좌번호 { get => _계좌번호; set => _계좌번호 = value; }
+        public string 비밀번호 { get => _비밀번호; set => _비밀번호 = value; }
+        public string 비밀번호입력매체구분 { get => _비밀번호입력매체구분; set => _비밀번호입력매체구분 = value; }
+        public string 조회구분 { get => _조회구분; set => _조회구분 = value; }
+
+    }
+
+    public class OPW00018_계좌평가결과
+    {
+        private string _총매입금액;
+        private string _총평가금액;
+        private string _총평가손익금액;
+        private string _총수익률_Pece;
+        private string _추정예탁자산;
+        private string _총대출금;
+        private string _총융자금액;
+        private string _총대주금액;
+        private string _조회건수;
+
+        public string 총매입금액 { get => _총매입금액.TrimStart('0'); set => _총매입금액 = value; }
+        public string 총평가금액 { get => _총평가금액.TrimStart('0'); set => _총평가금액 = value; }
+        public string 총평가손익금액 { get => _총평가손익금액.ToPrice(); set => _총평가손익금액 = value; }
+        public string 총수익률 { get => _총수익률_Pece.ToPersentage(); set => _총수익률_Pece = value; }
+        public string 추정예탁자산 { get => _추정예탁자산.TrimStart('0'); set => _추정예탁자산 = value; }
+        public string 총대출금 { get => _총대출금.TrimStart('0'); set => _총대출금 = value; }
+        public string 총융자금액 { get => _총융자금액.TrimStart('0'); set => _총융자금액 = value; }
+        public string 총대주금액 { get => _총대주금액.TrimStart('0'); set => _총대주금액 = value; }
+        public string 조회건수 { get => _조회건수.TrimStart('0'); set => _조회건수 = value; }
+    }
+
+    public class OPW00018_계좌평가잔고개별합산
+    {
+        private string _종목번호;
+        private string _종목명;
+        private string _평가손익;
+        private string _수익률;
+        private string _매입가;
+        private string _전일종가;
+        private string _보유수량;
+        private string _매매가능수량;
+        private string _현재가;
+        private string _매입금액;
+        private string _매입수수료;
+        private string _평가금액;
+        private string _평가수수료;
+        private string _세금;
+        private string _수수료합;
+        private string _보유비중;
+        private string _신용구분;
+        private string _신용구분명;
+        private string _대출일;
+        private string _전일매수수량;
+        private string _전일매도수량;
+        private string _금일매수수량;
+        private string _금일매도수량;
+
+        public string 종목번호 { get => _종목번호.TrimStart('0').Replace("A",""); set => _종목번호 = value; }
+        public string 종목명 { get => _종목명; set => _종목명 = value; }
+        public string 평가손익 { get => _평가손익.ToPrice(); set => _평가손익 = value; }
+        public string 수익률 { get => _수익률.ToPersentage(); set => _수익률 = value; }
+        public string 매입가 { get => _매입가.TrimStart('0'); set => _매입가 = value; }
+        public string 전일종가 { get => _전일종가.TrimStart('0'); set => _전일종가 = value; }
+        public string 보유수량 { get => _보유수량.TrimStart('0'); set => _보유수량 = value; }
+        public string 매매가능수량 { get => _매매가능수량.TrimStart('0'); set => _매매가능수량 = value; }
+        public string 현재가 { get => _현재가.TrimStart('0'); set => _현재가 = value; }
+        public string 매입금액 { get => _매입금액.TrimStart('0'); set => _매입금액 = value; }
+        public string 매입수수료 { get => _매입수수료.TrimStart('0'); set => _매입수수료 = value; }
+        public string 평가금액 { get => _평가금액.TrimStart('0'); set => _평가금액 = value; }
+        public string 평가수수료 { get => _평가수수료.TrimStart('0'); set => _평가수수료 = value; }
+        public string 세금 { get => _세금.TrimStart('0'); set => _세금 = value; }
+        public string 수수료합 { get => _수수료합.TrimStart('0'); set => _수수료합 = value; }
+        public string 보유비중 { get => _보유비중.ToPersentage(); set => _보유비중 = value; }
+        public string 신용구분 { get => _신용구분; set => _신용구분 = value; }
+        public string 신용구분명 { get => _신용구분명; set => _신용구분명 = value; }
+        public string 대출일 { get => _대출일; set => _대출일 = value; }
+        public string 전일매수수량 { get => _전일매수수량.TrimStart('0'); set => _전일매수수량 = value; }
+        public string 전일매도수량 { get => _전일매도수량.TrimStart('0'); set => _전일매도수량 = value; }
+        public string 금일매수수량 { get => _금일매수수량.TrimStart('0'); set => _금일매수수량 = value; }
+        public string 금일매도수량 { get => _금일매도수량.TrimStart('0'); set => _금일매도수량 = value; }
+    }
+
+    public class OPW00004_계좌평가현황요청_Single
     {
         private string _예수금;
         private string _유가잔고평가액;
         private string _예탁자산평가액;
         private string _총매입금액;
-        private string _평가금액;
-        private string _현재가;
+        private string _추정예탁자산;
+        private string _당일투자원금;
+        private string _당월투자원금;
+        private string _누적투자원금;
+        private string _당일투자손익;
+        private string _당월투자손익;
+        private string _누적투자손익;
+        private string _당일투자손익율;
+        private string _당월투자손익율;
+        private string _누적투자손익율;
+
+        public string 예수금 { get => _예수금.TrimStart('0'); set => _예수금 = value; }
+        public string 유가잔고평가액 { get => _유가잔고평가액.TrimStart('0'); set => _유가잔고평가액 = value; }
+        public string 예탁자산평가액 { get => _예탁자산평가액.TrimStart('0'); set => _예탁자산평가액 = value; }
+        public string 총매입금액 { get => _총매입금액.TrimStart('0'); set => _총매입금액 = value; }
+        public string 추정예탁자산 { get => _추정예탁자산.TrimStart('0'); set => _추정예탁자산 = value; }
+        public string 당일투자원금 { get => _당일투자원금.TrimStart('0'); set => _당일투자원금 = value; }
+        public string 당월투자원금 { get => _당월투자원금.TrimStart('0'); set => _당월투자원금 = value; }
+        public string 누적투자원금 { get => _누적투자원금.TrimStart('0'); set => _누적투자원금 = value; }
+        public string 당일투자손익 { get => _당일투자손익.ToPrice(); set => _당일투자손익 = value; }
+        public string 당월투자손익 { get => _당월투자손익.ToPrice(); set => _당월투자손익 = value; }
+        public string 누적투자손익 { get => _누적투자손익.ToPrice(); set => _누적투자손익 = value; }
+        public string 당일투자손익율 { get => _당일투자손익율.ToPersentage(); set => _당일투자손익율 = value; }
+        public string 당월투자손익율 { get => _당월투자손익율.ToPersentage(); set => _당월투자손익율 = value; }
+        public string 누적투자손익율 { get => _누적투자손익율.ToPersentage(); set => _누적투자손익율 = value; }
     }
 
-        class OPW00004_계좌평가현황요청_Multi
+    class OPW00004_계좌평가현황요청_Multi
     {
         private string _종목코드;
         private string _종목명;
@@ -33,7 +150,7 @@ namespace GloomySpider
         private string _평가금액;
         private string _현재가;
         private string _손익금액;
-        private string _손익율 ;
+        private string _손익율;
         private string _대출일;
         private string _매입금액;
         private string _결제잔고;
@@ -42,29 +159,29 @@ namespace GloomySpider
         private string _금일매수수량;
         private string _금일매도수량;
 
-        public string 종목코드 { get => _종목코드.Replace("A","").TrimStart('0'); set => _종목코드 = value; }
+        public string 종목코드 { get => _종목코드.Replace("A", "").TrimStart('0'); set => _종목코드 = value; }
         public string 종목명 { get => _종목명; set => _종목명 = value; }
+        public string 현재가 { get => _현재가.TrimStart('0'); set => _현재가 = value; }
         public string 보유수량 { get => _보유수량.TrimStart('0'); set => _보유수량 = value; }
         public string 평균단가 { get => _평균단가.TrimStart('0'); set => _평균단가 = value; }
         public string 평가금액 { get => _평가금액.TrimStart('0'); set => _평가금액 = value; }
         public string 손익금액
         {
-            get => _손익금액.Substring(0,1).Equals("-")? "-"+_손익금액.Remove(0,1).TrimStart('0'): _손익금액.TrimStart('0');
+            get => _손익금액.ToPrice();
             set => _손익금액 = value;
         }
         public string 손익율
         {
-            get => _손익율.Substring(0, 1).Equals("-") ? "-" + _손익율.Remove(0, 1).TrimStart('0') : _손익율.TrimStart('0');
+            get => _손익율.ToPersentage();
             set => _손익율 = value;
         }
         public string 대출일 { get => _대출일; set => _대출일 = value; }
-        public string 매입금액 { get => _매입금액; set => _매입금액 = value; }
+        public string 매입금액 { get => _매입금액.TrimStart('0'); set => _매입금액 = value; }
         public string 결제잔고 { get => _결제잔고; set => _결제잔고 = value; }
         public string 전일매수수량 { get => _전일매수수량; set => _전일매수수량 = value; }
         public string 전일매도수량 { get => _전일매도수량; set => _전일매도수량 = value; }
         public string 금일매수수량 { get => _금일매수수량; set => _금일매수수량 = value; }
         public string 금일매도수량 { get => _금일매도수량; set => _금일매도수량 = value; }
-        public string 현재가 { get => _현재가; set => _현재가 = value; }
     }
 
     class KOAErrorCode
@@ -84,7 +201,6 @@ namespace GloomySpider
         public const int OP_ERR_MIS_1PER_EXC = -305;  //”주문수량이 총발행주수의 1%를 초과합니다.”
         public const int OP_ERR_MID_3PER_EXC = -306;  //”주문수량은 총발행주수의 3%를 초과할 수 없습니다.”
     }
-
 
     public class KOACode
     {
@@ -223,7 +339,6 @@ namespace GloomySpider
             marketCode[8] = new MarketCode("30", "제3시장");
         }
     }
-
 
     class Error
     {

@@ -15,7 +15,6 @@ namespace GloomySpider
 {
     public partial class MainFrom : MetroFramework.Forms.MetroForm
     {
-        private long LogInResult;
         private int conditionLoadState;
         private int _scrNum = 5000;
         public MainFrom()
@@ -31,7 +30,8 @@ namespace GloomySpider
             axKHOpenAPI.OnReceiveConditionVer += API_OnReceiveConditionVer;
             axKHOpenAPI.OnReceiveMsg += API_OnReceiveMsg;
 
-            
+            if (Properties.Settings.Default.AutoStart)
+                this.cbAutoStart.Checked = true;
         }
         
         #region 키움 API 이벤트
@@ -74,19 +74,77 @@ namespace GloomySpider
 
         private void API_OnReceiveRealCondition(object sender, _DKHOpenAPIEvents_OnReceiveRealConditionEvent e)
         {
-            //BSTR strCode,   // 종목코드
-            //BSTR strType,   //  이벤트 종류, "I":종목편입, "D", 종목이탈
-            //BSTR strConditionName,    // 조건식 이름 
-            //BSTR strConditionIndex    // 조건명 인덱스
-
             string type = e.strType.Equals("I") ? "종목편입" : "종목이탈";
             Logger(Log.일반, e.strConditionName + ";" + type + ";" + e.sTrCode);
         }
 
         private void API_OnReceiveTrData(object sender, _DKHOpenAPIEvents_OnReceiveTrDataEvent e)
         {
-            if (e.sRQName.Equals("조건검색결과"))
+            if (e.sRQName.Equals("계좌평가잔고내역요청"))
             {
+                this.dataGridViewAccount.DataSource = null;
+                int multiCount = 0;
+                List<OPW00018_계좌평가결과> dataSingleList = new List<OPW00018_계좌평가결과>();
+                OPW00018_계좌평가결과 dataSingle = new OPW00018_계좌평가결과();
+                dataSingle.총매입금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "총매입금액").Trim();
+                dataSingle.총수익률 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "총수익률(%)").Trim();
+                dataSingle.총평가손익금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "총평가손익금액").Trim();
+                dataSingle.총평가금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "총평가금액").Trim();
+                dataSingle.총대주금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "총대주금액").Trim();
+                dataSingle.총대출금 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "총대출금").Trim();
+                dataSingle.총융자금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "총융자금액").Trim();
+                dataSingle.추정예탁자산 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "추정예탁자산").Trim();
+                dataSingle.조회건수 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "조회건수").Trim();
+                dataSingleList.Add(dataSingle);
+                dataGridViewAccount.DataSource = dataSingleList;
+                multiCount = Int32.Parse(dataSingle.조회건수);
+
+                List<OPW00018_계좌평가잔고개별합산> dataMultiList = new List<OPW00018_계좌평가잔고개별합산>();
+                for (int i = 0; i < multiCount; i++)
+                {
+                    OPW00018_계좌평가잔고개별합산 dataMulti = new OPW00018_계좌평가잔고개별합산();
+                    dataMulti.금일매도수량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "금일매도수량").Trim();
+                    dataMulti.금일매수수량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "금일매수수량").Trim();
+                    dataMulti.대출일 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "대출일").Trim();
+                    dataMulti.매입가 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "매입가").Trim();
+                    dataMulti.매입금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "매입금액").Trim();
+                    dataMulti.매입수수료 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "매입수수료").Trim();
+                    dataMulti.보유비중 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "보유비중(%)").Trim();
+                    dataMulti.보유수량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "보유수량").Trim();
+                    dataMulti.세금 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "세금").Trim();
+                    dataMulti.수수료합 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "수수료합").Trim();
+                    dataMulti.수익률 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "수익률(%)").Trim();
+                    dataMulti.신용구분 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "신용구분").Trim();
+                    dataMulti.신용구분명 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "신용구분명").Trim();
+                    dataMulti.전일매도수량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "전일매도수량").Trim();
+                    dataMulti.전일매수수량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "전일매수수량").Trim();
+                    dataMulti.전일종가 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "전일종가").Trim();
+                    dataMulti.종목명 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+                    dataMulti.종목번호 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목번호").Trim();
+                    dataMulti.평가금액 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "평가금액").Trim();
+                    dataMulti.평가손익 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "평가손익").Trim();
+                    dataMulti.평가수수료 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "평가수수료").Trim();
+                    dataMulti.현재가 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
+                    dataMulti.매매가능수량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "매매가능수량").Trim();
+                    dataMultiList.Add(dataMulti);
+                }
+                this.dataGridViewAccountStock.DataSource = dataMultiList;
+
+                foreach (DataGridViewColumn col in dataGridViewAccount.Columns)
+                {
+                    col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+                dataGridViewAccount.SelectedRows[0].Selected = false;
+
+                foreach (DataGridViewColumn col in dataGridViewAccountStock.Columns)
+                {
+                    col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+                dataGridViewAccountStock.SelectedRows[0].Selected = false;
+            }
+            else if (e.sRQName.Equals("조건검색결과"))
+            {
+                #region 조건검색결과
                 int count = axKHOpenAPI.GetRepeatCnt(e.sTrCode, e.sRQName);
 
                 for (int i = 0; i < count; i++)
@@ -98,11 +156,13 @@ namespace GloomySpider
                     lv.SubItems.Add(stockCurrentPrice);
                     lv.Tag = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
 
-                }
+                } 
+                #endregion
             }
             else if (e.sRQName.Equals("계좌평가현황요청"))
             {
-                this.dataGridViewAccInfo.DataSource = null;
+                #region 계좌평가현황요청
+                this.dataGridViewAccountStock.DataSource = null;
 
                 OPW00004_계좌평가현황요청_Single singleData = new OPW00004_계좌평가현황요청_Single();
                 singleData.예수금 = this.axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "예수금").Trim();
@@ -131,14 +191,17 @@ namespace GloomySpider
                     OPW00004_dataList.Add(multiData);
                 }
 
-                this.dataGridViewAccInfo.DataSource = OPW00004_dataList;
+                this.dataGridViewAccountStock.DataSource = OPW00004_dataList;
 
-                foreach (DataGridViewColumn col in dataGridViewAccInfo.Columns)
+                foreach (DataGridViewColumn col in dataGridViewAccountStock.Columns)
                 {
                     col.SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
- 
-                Logger(Log.조회, "계좌정보 조회 성공");
+                dataGridViewAccountStock.SelectedRows[0].Selected = false;
+
+
+                Logger(Log.조회, "계좌정보 조회 성공"); 
+                #endregion
             }
             else if (e.sRQName.Equals("증거금율별주문가능수량조회요청"))
             {
@@ -179,32 +242,44 @@ namespace GloomySpider
 
         private void API_OnEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
         {
-            if (LogInResult == 0)
+            if (e.nErrCode == 0)
             {
-                Logger(Log.일반, "로그인창 열기 성공");
-                UpdateUserInformation();
+                Logger(Log.일반, "로그인 성공");
                 GetAccountInfo();
+
+                Get_OPW00018_계좌평가잔고내역요청();
             }
             else
             {
-                Logger(Log.에러, "로그인창 열기 실패");
+                Logger(Log.에러, "로그인 실패");
             }
             
         }
         #endregion
 
         #region UI 이벤트
+
+        private void MainFrom_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.AutoStart)
+                LogIn();
+        }
+
+        private void cbAutoStart_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.cbAutoStart.Checked)
+                Properties.Settings.Default.AutoStart = true;
+            else
+                Properties.Settings.Default.AutoStart = false;
+
+            Properties.Settings.Default.Save();
+        }
+
         private void bttnStart_Click(object sender, EventArgs e)
         {
-            if (axKHOpenAPI.GetConnectState() == 0)
-            {
-                LogInResult = axKHOpenAPI.CommConnect();
-            }
-            else
-            {
-                Logger(Log.일반, "연결중");
-            }
+            LogIn();
         }
+
 
         private void bttnConditionLoad_Click(object sender, EventArgs e)
         {
@@ -295,14 +370,6 @@ namespace GloomySpider
             sendOrderGS(1, tbStockCode.Text, int.Parse(tbOrderQty.Text), orderPrice, orderGb, metroRadioButton3.Checked);
         }
 
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            DisconnectAllRealData();
-            axKHOpenAPI.CommTerminate();
-            Logger(Log.일반, "로그아웃");
-        }
-
         private void btnPossibleCnt_Click(object sender, EventArgs e)
         {
             this.axKHOpenAPI.SetInputValue("계좌번호", this.tbAccount.Text);
@@ -325,24 +392,27 @@ namespace GloomySpider
 
         private void btn계좌정보조회_Click(object sender, EventArgs e)
         {
-            GetAccountInfo();
+            Get_OPW00018_계좌평가잔고내역요청();
         }
 
         private void dataGridViewAccInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex > -1 && e.ColumnIndex == this.dataGridViewAccInfo.Columns["손익율"].Index)
+            if (e.RowIndex > -1 && e.ColumnIndex == this.dataGridViewAccountStock.Columns["수익률"].Index)
             {
                 if (e.Value != null)
                 {
                     double value = double.Parse(e.Value.ToString());
                     if (value > 0)
                     {
-                        this.dataGridViewAccInfo.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
-                        //this.dataGridViewAccInfo.Rows[e.RowIndex].Cells["손익율"].Style.ForeColor = Color.Red;
+                        //this.dataGridViewAccInfo.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                        this.dataGridViewAccountStock.Rows[e.RowIndex].Cells["수익률"].Style.ForeColor = Color.Red;
+                        this.dataGridViewAccountStock.Rows[e.RowIndex].Cells["평가손익"].Style.ForeColor = Color.Red;
                     }
                     else
                     {
-                        this.dataGridViewAccInfo.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Blue;
+                        //this.dataGridViewAccInfo.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Blue;
+                        this.dataGridViewAccountStock.Rows[e.RowIndex].Cells["수익률"].Style.ForeColor = Color.Blue;
+                        this.dataGridViewAccountStock.Rows[e.RowIndex].Cells["평가손익"].Style.ForeColor = Color.Blue;
                     }
                 }
             }
@@ -352,7 +422,23 @@ namespace GloomySpider
 
         #region 사용자 함수
 
-        private void GetAccountInfo()
+       private void Get_OPW00018_계좌평가잔고내역요청()
+        {
+            OPW00018_계좌평가잔고내역요청 data = new OPW00018_계좌평가잔고내역요청();
+            data.계좌번호 = this.tbAccount.Text;
+            data.비밀번호 = "";
+            data.비밀번호입력매체구분 = "00";
+            data.조회구분 = "1";
+
+            this.axKHOpenAPI.SetInputValue("계좌번호", data.계좌번호);
+            this.axKHOpenAPI.SetInputValue("비밀번호", data.비밀번호);
+            this.axKHOpenAPI.SetInputValue("비밀번호입력매체구분", data.비밀번호입력매체구분);
+            this.axKHOpenAPI.SetInputValue("조회구분", data.조회구분);
+
+            int result1 = this.axKHOpenAPI.CommRqData(data.RQName, data.RQCode, 0, GetScreenNum());
+        }
+
+        private void Get_OPW00004_계좌평가현황요청()
         {
             this.axKHOpenAPI.SetInputValue("계좌번호", this.tbAccount.Text);
             this.axKHOpenAPI.SetInputValue("비밀번호", "");
@@ -361,17 +447,6 @@ namespace GloomySpider
 
             int result = this.axKHOpenAPI.CommRqData("계좌평가현황요청", "OPW00004", 0, "6001");
         }
-
-        /*  Parameter 설명
-           거래유형 orderType :  1:신규매수, 2:신규매도 3:매수취소, 4:매도취소, 5:매수정정, 6:매도정정
-           종목코드 stockCode
-           주문수량 orderQty
-           주문가격 orderPrice
-           거래구분 orderGb
-             - 00 : 지정가
-             - 03 : 시장가
-           원주문번호 orgOrderNo : 일반적으론 주문정정이나 취소가 아닐때는 안넣어도 됨
-       */
 
         private void sendOrderGS(int orderType, string stockCode, int orderQty, int orderPrice, string orderGb, bool creditYn, string orgOrderNo = "")
         {
@@ -450,7 +525,7 @@ namespace GloomySpider
             return this._scrNum.ToString();
         }
 
-        private void UpdateUserInformation()
+        private void GetAccountInfo()
         {
             string account = axKHOpenAPI.GetLoginInfo("ACCNO");
             string[] accounts = account.Split(';');
@@ -467,24 +542,23 @@ namespace GloomySpider
             }
         }
 
+        private void LogIn()
+        {
+            if (axKHOpenAPI.GetConnectState() == 0)
+            {
+                axKHOpenAPI.CommConnect();
+            }
+            else
+            {
+                Logger(Log.일반, "연결중");
+            }
+        }
+
         // 로그를 출력합니다.
         public void Logger(Log type, string msg)
         {
             this.richTextBoxLog.AppendText(type.ToString() + " : " + msg+"\n");
         }
-
-        // 실시간 연결 종료
-        private void DisconnectAllRealData()
-        {
-            for (int i = _scrNum; i > 5000; i--)
-            {
-                axKHOpenAPI.DisconnectRealData(i.ToString());
-            }
-
-            _scrNum = 5000;
-        }
         #endregion
-
-
     }
 }

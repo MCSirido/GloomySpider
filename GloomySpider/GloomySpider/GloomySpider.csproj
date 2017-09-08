@@ -54,17 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GloomyMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GloomyMainForm.Designer.cs">
+      <DependentUpon>GloomyMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="KiwoomCode.cs" />
+    <Compile Include="GloommyConst.cs" />
+    <Compile Include="GloomyModel.cs" />
+    <Compile Include="GloomyUtil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GloomyMainForm.resx">
+      <DependentUpon>GloomyMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

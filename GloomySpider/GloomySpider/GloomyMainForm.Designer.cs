@@ -36,8 +36,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.axKHOpenAPI = new AxKHOpenAPILib.AxKHOpenAPI();
-            this.bttnStart = new MetroFramework.Controls.MetroButton();
+            this.bttnLogIn = new MetroFramework.Controls.MetroButton();
             this.listviewConditionSearchList = new MetroFramework.Controls.MetroListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,10 +58,6 @@
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
             this.bttnConditionSearchStart = new MetroFramework.Controls.MetroButton();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
-            this.tbAcc예수금 = new MetroFramework.Controls.MetroTextBox();
-            this.tbAcc총평가금액 = new MetroFramework.Controls.MetroTextBox();
-            this.tbAcc총수익률 = new MetroFramework.Controls.MetroTextBox();
-            this.tbAcc총손익금 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroRadioButton3 = new MetroFramework.Controls.MetroRadioButton();
@@ -70,12 +67,13 @@
             this.btn계좌정보조회 = new MetroFramework.Controls.MetroButton();
             this.tbLoanDate = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.dataGridViewAccInfo = new MetroFramework.Controls.MetroGrid();
-            this.dataGridViewStockInfo = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewAccountStock = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewAccount = new MetroFramework.Controls.MetroGrid();
+            this.cbAutoStart = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // axKHOpenAPI
@@ -88,15 +86,15 @@
             this.axKHOpenAPI.TabIndex = 0;
             this.axKHOpenAPI.Visible = false;
             // 
-            // bttnStart
+            // bttnLogIn
             // 
-            this.bttnStart.Location = new System.Drawing.Point(26, 72);
-            this.bttnStart.Name = "bttnStart";
-            this.bttnStart.Size = new System.Drawing.Size(83, 26);
-            this.bttnStart.TabIndex = 1;
-            this.bttnStart.Text = "Log In";
-            this.bttnStart.UseSelectable = true;
-            this.bttnStart.Click += new System.EventHandler(this.bttnStart_Click);
+            this.bttnLogIn.Location = new System.Drawing.Point(26, 72);
+            this.bttnLogIn.Name = "bttnLogIn";
+            this.bttnLogIn.Size = new System.Drawing.Size(83, 26);
+            this.bttnLogIn.TabIndex = 1;
+            this.bttnLogIn.Text = "Log In";
+            this.bttnLogIn.UseSelectable = true;
+            this.bttnLogIn.Click += new System.EventHandler(this.bttnStart_Click);
             // 
             // listviewConditionSearchList
             // 
@@ -366,126 +364,6 @@
             this.richTextBoxLog.TabIndex = 22;
             this.richTextBoxLog.Text = "";
             // 
-            // tbAcc예수금
-            // 
-            // 
-            // 
-            // 
-            this.tbAcc예수금.CustomButton.Image = null;
-            this.tbAcc예수금.CustomButton.Location = new System.Drawing.Point(114, 1);
-            this.tbAcc예수금.CustomButton.Name = "";
-            this.tbAcc예수금.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.tbAcc예수금.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbAcc예수금.CustomButton.TabIndex = 1;
-            this.tbAcc예수금.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbAcc예수금.CustomButton.UseSelectable = true;
-            this.tbAcc예수금.CustomButton.Visible = false;
-            this.tbAcc예수금.Lines = new string[0];
-            this.tbAcc예수금.Location = new System.Drawing.Point(21, 468);
-            this.tbAcc예수금.MaxLength = 32767;
-            this.tbAcc예수금.Name = "tbAcc예수금";
-            this.tbAcc예수금.PasswordChar = '\0';
-            this.tbAcc예수금.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbAcc예수금.SelectedText = "";
-            this.tbAcc예수금.SelectionLength = 0;
-            this.tbAcc예수금.SelectionStart = 0;
-            this.tbAcc예수금.ShortcutsEnabled = true;
-            this.tbAcc예수금.Size = new System.Drawing.Size(136, 23);
-            this.tbAcc예수금.TabIndex = 24;
-            this.tbAcc예수금.UseSelectable = true;
-            this.tbAcc예수금.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbAcc예수금.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // tbAcc총평가금액
-            // 
-            // 
-            // 
-            // 
-            this.tbAcc총평가금액.CustomButton.Image = null;
-            this.tbAcc총평가금액.CustomButton.Location = new System.Drawing.Point(114, 1);
-            this.tbAcc총평가금액.CustomButton.Name = "";
-            this.tbAcc총평가금액.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.tbAcc총평가금액.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbAcc총평가금액.CustomButton.TabIndex = 1;
-            this.tbAcc총평가금액.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbAcc총평가금액.CustomButton.UseSelectable = true;
-            this.tbAcc총평가금액.CustomButton.Visible = false;
-            this.tbAcc총평가금액.Lines = new string[0];
-            this.tbAcc총평가금액.Location = new System.Drawing.Point(163, 468);
-            this.tbAcc총평가금액.MaxLength = 32767;
-            this.tbAcc총평가금액.Name = "tbAcc총평가금액";
-            this.tbAcc총평가금액.PasswordChar = '\0';
-            this.tbAcc총평가금액.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbAcc총평가금액.SelectedText = "";
-            this.tbAcc총평가금액.SelectionLength = 0;
-            this.tbAcc총평가금액.SelectionStart = 0;
-            this.tbAcc총평가금액.ShortcutsEnabled = true;
-            this.tbAcc총평가금액.Size = new System.Drawing.Size(136, 23);
-            this.tbAcc총평가금액.TabIndex = 25;
-            this.tbAcc총평가금액.UseSelectable = true;
-            this.tbAcc총평가금액.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbAcc총평가금액.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // tbAcc총수익률
-            // 
-            // 
-            // 
-            // 
-            this.tbAcc총수익률.CustomButton.Image = null;
-            this.tbAcc총수익률.CustomButton.Location = new System.Drawing.Point(114, 1);
-            this.tbAcc총수익률.CustomButton.Name = "";
-            this.tbAcc총수익률.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.tbAcc총수익률.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbAcc총수익률.CustomButton.TabIndex = 1;
-            this.tbAcc총수익률.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbAcc총수익률.CustomButton.UseSelectable = true;
-            this.tbAcc총수익률.CustomButton.Visible = false;
-            this.tbAcc총수익률.Lines = new string[0];
-            this.tbAcc총수익률.Location = new System.Drawing.Point(21, 497);
-            this.tbAcc총수익률.MaxLength = 32767;
-            this.tbAcc총수익률.Name = "tbAcc총수익률";
-            this.tbAcc총수익률.PasswordChar = '\0';
-            this.tbAcc총수익률.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbAcc총수익률.SelectedText = "";
-            this.tbAcc총수익률.SelectionLength = 0;
-            this.tbAcc총수익률.SelectionStart = 0;
-            this.tbAcc총수익률.ShortcutsEnabled = true;
-            this.tbAcc총수익률.Size = new System.Drawing.Size(136, 23);
-            this.tbAcc총수익률.TabIndex = 26;
-            this.tbAcc총수익률.UseSelectable = true;
-            this.tbAcc총수익률.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbAcc총수익률.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // tbAcc총손익금
-            // 
-            // 
-            // 
-            // 
-            this.tbAcc총손익금.CustomButton.Image = null;
-            this.tbAcc총손익금.CustomButton.Location = new System.Drawing.Point(114, 1);
-            this.tbAcc총손익금.CustomButton.Name = "";
-            this.tbAcc총손익금.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.tbAcc총손익금.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbAcc총손익금.CustomButton.TabIndex = 1;
-            this.tbAcc총손익금.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbAcc총손익금.CustomButton.UseSelectable = true;
-            this.tbAcc총손익금.CustomButton.Visible = false;
-            this.tbAcc총손익금.Lines = new string[0];
-            this.tbAcc총손익금.Location = new System.Drawing.Point(162, 497);
-            this.tbAcc총손익금.MaxLength = 32767;
-            this.tbAcc총손익금.Name = "tbAcc총손익금";
-            this.tbAcc총손익금.PasswordChar = '\0';
-            this.tbAcc총손익금.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbAcc총손익금.SelectedText = "";
-            this.tbAcc총손익금.SelectionLength = 0;
-            this.tbAcc총손익금.SelectionStart = 0;
-            this.tbAcc총손익금.ShortcutsEnabled = true;
-            this.tbAcc총손익금.Size = new System.Drawing.Size(136, 23);
-            this.tbAcc총손익금.TabIndex = 27;
-            this.tbAcc총손익금.UseSelectable = true;
-            this.tbAcc총손익금.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbAcc총손익금.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
@@ -539,15 +417,15 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(21, 442);
+            this.metroLabel7.Location = new System.Drawing.Point(26, 442);
             this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(92, 20);
+            this.metroLabel7.Size = new System.Drawing.Size(122, 20);
             this.metroLabel7.TabIndex = 32;
-            this.metroLabel7.Text = "내 계좌 정보";
+            this.metroLabel7.Text = "갤러리 계좌 정보";
             // 
             // btn계좌정보조회
             // 
-            this.btn계좌정보조회.Location = new System.Drawing.Point(119, 436);
+            this.btn계좌정보조회.Location = new System.Drawing.Point(186, 436);
             this.btn계좌정보조회.Name = "btn계좌정보조회";
             this.btn계좌정보조회.Size = new System.Drawing.Size(174, 26);
             this.btn계좌정보조회.TabIndex = 33;
@@ -594,22 +472,22 @@
             this.metroLabel8.TabIndex = 34;
             this.metroLabel8.Text = "대출일";
             // 
-            // dataGridViewAccInfo
+            // dataGridViewAccountStock
             // 
-            this.dataGridViewAccInfo.AllowUserToResizeRows = false;
-            this.dataGridViewAccInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewAccInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewAccInfo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewAccInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewAccountStock.AllowUserToResizeRows = false;
+            this.dataGridViewAccountStock.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewAccountStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewAccountStock.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewAccountStock.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAccInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewAccInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAccountStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewAccountStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -617,15 +495,15 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewAccInfo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewAccInfo.EnableHeadersVisualStyles = false;
-            this.dataGridViewAccInfo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dataGridViewAccInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewAccInfo.Location = new System.Drawing.Point(26, 526);
-            this.dataGridViewAccInfo.MultiSelect = false;
-            this.dataGridViewAccInfo.Name = "dataGridViewAccInfo";
-            this.dataGridViewAccInfo.ReadOnly = true;
-            this.dataGridViewAccInfo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewAccountStock.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewAccountStock.EnableHeadersVisualStyles = false;
+            this.dataGridViewAccountStock.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dataGridViewAccountStock.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewAccountStock.Location = new System.Drawing.Point(26, 566);
+            this.dataGridViewAccountStock.MultiSelect = false;
+            this.dataGridViewAccountStock.Name = "dataGridViewAccountStock";
+            this.dataGridViewAccountStock.ReadOnly = true;
+            this.dataGridViewAccountStock.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -633,34 +511,35 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAccInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewAccInfo.RowHeadersVisible = false;
-            this.dataGridViewAccInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridViewAccountStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewAccountStock.RowHeadersVisible = false;
+            this.dataGridViewAccountStock.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewAccInfo.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewAccInfo.RowTemplate.Height = 27;
-            this.dataGridViewAccInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAccInfo.Size = new System.Drawing.Size(1237, 198);
-            this.dataGridViewAccInfo.StandardTab = true;
-            this.dataGridViewAccInfo.TabIndex = 36;
-            this.dataGridViewAccInfo.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewAccInfo_CellFormatting);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewAccountStock.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewAccountStock.RowTemplate.Height = 27;
+            this.dataGridViewAccountStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAccountStock.Size = new System.Drawing.Size(1237, 212);
+            this.dataGridViewAccountStock.StandardTab = true;
+            this.dataGridViewAccountStock.TabIndex = 36;
+            this.dataGridViewAccountStock.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewAccInfo_CellFormatting);
             // 
-            // dataGridViewStockInfo
+            // dataGridViewAccount
             // 
-            this.dataGridViewStockInfo.AllowUserToResizeRows = false;
-            this.dataGridViewStockInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewStockInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewStockInfo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewStockInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewAccount.AllowUserToResizeRows = false;
+            this.dataGridViewAccount.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewAccount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStockInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewStockInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -668,13 +547,15 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewStockInfo.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewStockInfo.EnableHeadersVisualStyles = false;
-            this.dataGridViewStockInfo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dataGridViewStockInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewStockInfo.Location = new System.Drawing.Point(392, 331);
-            this.dataGridViewStockInfo.Name = "dataGridViewStockInfo";
-            this.dataGridViewStockInfo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewAccount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewAccount.EnableHeadersVisualStyles = false;
+            this.dataGridViewAccount.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dataGridViewAccount.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewAccount.Location = new System.Drawing.Point(26, 487);
+            this.dataGridViewAccount.MultiSelect = false;
+            this.dataGridViewAccount.Name = "dataGridViewAccount";
+            this.dataGridViewAccount.ReadOnly = true;
+            this.dataGridViewAccount.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -682,20 +563,38 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewStockInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewStockInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridViewStockInfo.RowTemplate.Height = 27;
-            this.dataGridViewStockInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStockInfo.Size = new System.Drawing.Size(871, 150);
-            this.dataGridViewStockInfo.TabIndex = 37;
+            this.dataGridViewAccount.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewAccount.RowHeadersVisible = false;
+            this.dataGridViewAccount.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            this.dataGridViewAccount.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewAccount.RowTemplate.Height = 27;
+            this.dataGridViewAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAccount.Size = new System.Drawing.Size(1237, 73);
+            this.dataGridViewAccount.StandardTab = true;
+            this.dataGridViewAccount.TabIndex = 38;
+            // 
+            // cbAutoStart
+            // 
+            this.cbAutoStart.AutoSize = true;
+            this.cbAutoStart.Location = new System.Drawing.Point(249, 71);
+            this.cbAutoStart.Name = "cbAutoStart";
+            this.cbAutoStart.Size = new System.Drawing.Size(111, 27);
+            this.cbAutoStart.TabIndex = 40;
+            this.cbAutoStart.Text = "Auto Start";
+            this.cbAutoStart.UseVisualStyleBackColor = true;
+            this.cbAutoStart.CheckedChanged += new System.EventHandler(this.cbAutoStart_CheckedChanged);
             // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 750);
-            this.Controls.Add(this.dataGridViewStockInfo);
-            this.Controls.Add(this.dataGridViewAccInfo);
+            this.ClientSize = new System.Drawing.Size(1270, 790);
+            this.Controls.Add(this.cbAutoStart);
+            this.Controls.Add(this.dataGridViewAccount);
+            this.Controls.Add(this.dataGridViewAccountStock);
             this.Controls.Add(this.tbLoanDate);
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.btn계좌정보조회);
@@ -703,10 +602,6 @@
             this.Controls.Add(this.btnPossibleCnt);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.metroLabel6);
-            this.Controls.Add(this.tbAcc총손익금);
-            this.Controls.Add(this.tbAcc총수익률);
-            this.Controls.Add(this.tbAcc총평가금액);
-            this.Controls.Add(this.tbAcc예수금);
             this.Controls.Add(this.richTextBoxLog);
             this.Controls.Add(this.bttnConditionSearchStart);
             this.Controls.Add(this.metroRadioButton2);
@@ -724,7 +619,7 @@
             this.Controls.Add(this.btnBuy);
             this.Controls.Add(this.bttnConditionLoad);
             this.Controls.Add(this.listviewConditionSearchList);
-            this.Controls.Add(this.bttnStart);
+            this.Controls.Add(this.bttnLogIn);
             this.Controls.Add(this.axKHOpenAPI);
             this.Font = new System.Drawing.Font("Malgun Gothic", 10F);
             this.HelpButton = true;
@@ -732,18 +627,19 @@
             this.Name = "MainFrom";
             this.Padding = new System.Windows.Forms.Padding(22, 69, 22, 23);
             this.Text = "Gloomy Spider";
+            this.Load += new System.EventHandler(this.MainFrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private MetroFramework.Controls.MetroButton bttnStart;
+        private MetroFramework.Controls.MetroButton bttnLogIn;
         private MetroFramework.Controls.MetroListView listviewConditionSearchList;
         private MetroFramework.Controls.MetroButton bttnConditionLoad;
         private MetroFramework.Controls.MetroButton btnBuy;
@@ -763,10 +659,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxLog;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private MetroFramework.Controls.MetroTextBox tbAcc예수금;
-        private MetroFramework.Controls.MetroTextBox tbAcc총평가금액;
-        private MetroFramework.Controls.MetroTextBox tbAcc총수익률;
-        private MetroFramework.Controls.MetroTextBox tbAcc총손익금;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton3;
@@ -776,9 +668,10 @@
         private MetroFramework.Controls.MetroButton btn계좌정보조회;
         private MetroFramework.Controls.MetroTextBox tbLoanDate;
         private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroGrid dataGridViewAccInfo;
-        private MetroFramework.Controls.MetroGrid dataGridViewStockInfo;
+        private MetroFramework.Controls.MetroGrid dataGridViewAccountStock;
         internal AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI;
+        private MetroFramework.Controls.MetroGrid dataGridViewAccount;
+        private System.Windows.Forms.CheckBox cbAutoStart;
     }
 }
 
