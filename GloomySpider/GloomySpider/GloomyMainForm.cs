@@ -45,6 +45,7 @@ namespace GloomySpider
 
         private void API_OnReceiveConditionVer(object sender, _DKHOpenAPIEvents_OnReceiveConditionVerEvent e)
         {
+
             this.dataGridViewCondition.DataSource = null;
             string conditionSearchList = axKHOpenAPI.GetConditionNameList().Trim();
 
