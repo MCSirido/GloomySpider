@@ -380,7 +380,6 @@
             this.tabCtr주문유형.TabIndex = 41;
             this.tabCtr주문유형.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.tabCtr주문유형.UseSelectable = true;
-            this.tabCtr주문유형.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // tab매수
             // 
