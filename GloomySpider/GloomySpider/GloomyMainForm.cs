@@ -33,7 +33,7 @@ namespace GloomySpider
             if (Properties.Settings.Default.AutoStart)
                 this.cbAutoStart.Checked = true;
         }
-        
+
         #region 키움 API 이벤트
         private void API_OnReceiveMsg(object sender, _DKHOpenAPIEvents_OnReceiveMsgEvent e)
         {
@@ -45,14 +45,13 @@ namespace GloomySpider
 
         private void API_OnReceiveConditionVer(object sender, _DKHOpenAPIEvents_OnReceiveConditionVerEvent e)
         {
-            this.listviewConditionSearchList.Items.Clear();
-            string conditionSearchList;
-
-            conditionSearchList = axKHOpenAPI.GetConditionNameList().Trim();
+            this.dataGridViewCondition.DataSource = null;
+            string conditionSearchList = axKHOpenAPI.GetConditionNameList().Trim();
 
             // 분리된 문자 배열 저장
             string[] spconditionSearchListArr = conditionSearchList.Split(';');
 
+            List<ConditionSearch> dataList = new List<ConditionSearch>();
             foreach (string condition in spconditionSearchListArr)
             {
                 if (string.IsNullOrEmpty(condition))
@@ -60,11 +59,13 @@ namespace GloomySpider
 
                 string[] conditionaArr = condition.Split('^');
 
-                ListViewItem lv = new ListViewItem(conditionaArr[0]);
-                lv.SubItems.Add(conditionaArr[1]);
-                listviewConditionSearchList.Items.Add(lv);
+                ConditionSearch data = new ConditionSearch();
+                data.조건번호= conditionaArr[0];
+                data.조건명 = conditionaArr[1];
+                dataList.Add(data);
             }
-            Logger(Log.일반, "조건식 불러오기 완료");
+
+            this.dataGridViewCondition.DataSource = dataList;
         }
 
         private void API_OnReceiveRealData(object sender, _DKHOpenAPIEvents_OnReceiveRealDataEvent e)
@@ -82,6 +83,7 @@ namespace GloomySpider
         {
             if (e.sRQName.Equals("계좌평가잔고내역요청"))
             {
+                #region 계좌평가잔고내역요청
                 this.dataGridViewAccount.DataSource = null;
                 int multiCount = 0;
                 List<OPW00018_계좌평가결과> dataSingleList = new List<OPW00018_계좌평가결과>();
@@ -97,6 +99,9 @@ namespace GloomySpider
                 dataSingle.조회건수 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, 0, "조회건수").Trim();
                 dataSingleList.Add(dataSingle);
                 dataGridViewAccount.DataSource = dataSingleList;
+                if (string.IsNullOrEmpty(dataSingle.조회건수))
+                    return;
+
                 multiCount = Int32.Parse(dataSingle.조회건수);
 
                 List<OPW00018_계좌평가잔고개별합산> dataMultiList = new List<OPW00018_계좌평가잔고개별합산>();
@@ -141,22 +146,34 @@ namespace GloomySpider
                     col.SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
                 dataGridViewAccountStock.SelectedRows[0].Selected = false;
+                Logger(Log.조회, "계좌평가잔고 완료");
+                #endregion
             }
-            else if (e.sRQName.Equals("조건검색결과"))
+            else if (e.sRQName.Equals("조건검색주식기본정보"))
             {
                 #region 조건검색결과
                 int count = axKHOpenAPI.GetRepeatCnt(e.sTrCode, e.sRQName);
 
+                List<OPT10001_주식기본정보> dataList = new List<OPT10001_주식기본정보>();
                 for (int i = 0; i < count; i++)
                 {
-
-                    string stockName = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
-                    string stockCurrentPrice = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
-                    ListViewItem lv = new ListViewItem(stockName);
-                    lv.SubItems.Add(stockCurrentPrice);
-                    lv.Tag = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
-
-                } 
+                    this.dataGridViewStockInfo.DataSource = null;
+                   OPT10001_주식기본정보 data = new OPT10001_주식기본정보();
+                    data.종목코드 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+                    data.종목명 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+                    data.현재가= axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Trim();
+                    data.등락율 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "등락율").Trim();
+                    data.거래량 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "거래량").Trim();
+                    data.전일대비 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "전일대비").Trim();
+                    data.고가 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "고가").Trim();
+                    data.저가 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
+                    data.연중최저 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "연중최저").Trim();
+                    data.연중최고 = axKHOpenAPI.GetCommData(e.sTrCode, e.sRQName, i, "연중최고").Trim();
+                    dataList.Add(data);
+                }
+                this.dataGridViewStockInfo.DataSource = dataList.Select(x => new { x.종목코드, x.종목명, x.현재가,x.전일대비, x.등락율}).ToList();
+                this.dataGridViewStockInfo.SelectedRows[0].Selected = false;
+                Logger(Log.조회, "조건검색결과 완료");
                 #endregion
             }
             else if (e.sRQName.Equals("계좌평가현황요청"))
@@ -200,7 +217,7 @@ namespace GloomySpider
                 dataGridViewAccountStock.SelectedRows[0].Selected = false;
 
 
-                Logger(Log.조회, "계좌정보 조회 성공"); 
+                Logger(Log.조회, "계좌정보 조회 성공");
                 #endregion
             }
             else if (e.sRQName.Equals("증거금율별주문가능수량조회요청"))
@@ -234,10 +251,13 @@ namespace GloomySpider
             if (e.nNext == 2)
             {
                 axKHOpenAPI.SendCondition(e.sScrNo, e.strConditionName, e.nIndex, 2);
-                //Logger(Log.일반, codeList);
             }
-
-            axKHOpenAPI.CommKwRqData(codeList, 0, count, 0, "조건검색결과", GetScreenNum());
+            if (count > 100)
+            {
+                count = 100;
+                Logger(Log.일반, "100개만 조회가능");
+            }
+            axKHOpenAPI.CommKwRqData(codeList, 0, count, 0, "조건검색주식기본정보", GetScreenNum());
         }
 
         private void API_OnEventConnect(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnEventConnectEvent e)
@@ -253,7 +273,6 @@ namespace GloomySpider
             {
                 Logger(Log.에러, "로그인 실패");
             }
-            
         }
         #endregion
 
@@ -262,7 +281,9 @@ namespace GloomySpider
         private void MainFrom_Load(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.AutoStart)
+            {
                 LogIn();
+            }
         }
 
         private void cbAutoStart_CheckedChanged(object sender, EventArgs e)
@@ -280,20 +301,9 @@ namespace GloomySpider
             LogIn();
         }
 
-
         private void bttnConditionLoad_Click(object sender, EventArgs e)
         {
-            conditionLoadState = axKHOpenAPI.GetConditionLoad();
-
-            if (conditionLoadState == 1)
-            {
-                Logger(Log.일반, "조건식 저장이 성공 되었습니다");
-
-            }
-            else
-            {
-                Logger(Log.에러, "조건식 저장이 실패 하였습니다");
-            }
+            LoadConditionSearch();
         }
 
         private void btnSell_Click(object sender, EventArgs e)
@@ -338,19 +348,7 @@ namespace GloomySpider
 
         private void bttnConditionSearchStart_Click(object sender, EventArgs e)
         {
-            if (this.listviewConditionSearchList.SelectedItems.Count == 0)
-                return;
-
-            int conditionIndex = Int32.Parse(this.listviewConditionSearchList.SelectedItems[0].SubItems[0].Text);
-            string conditionName = this.listviewConditionSearchList.SelectedItems[0].SubItems[1].Text;
-            int result = axKHOpenAPI.SendCondition(GetScreenNum(), conditionName, conditionIndex, 1);
-
-            if (result > 0)
-                Logger(Log.일반, "조건 검색 결과 불러오기 완료");
-            else
-                Logger(Log.에러, "조건 검색 결과 불러오기 실패");
-
-
+            GetConditionResult();
         }
 
         private void btnBuy_Click(object sender, EventArgs e)
@@ -407,22 +405,52 @@ namespace GloomySpider
                         //this.dataGridViewAccInfo.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
                         this.dataGridViewAccountStock.Rows[e.RowIndex].Cells["수익률"].Style.ForeColor = Color.Red;
                         this.dataGridViewAccountStock.Rows[e.RowIndex].Cells["평가손익"].Style.ForeColor = Color.Red;
+
                     }
-                    else
+                    else if (value < 0)
                     {
                         //this.dataGridViewAccInfo.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Blue;
                         this.dataGridViewAccountStock.Rows[e.RowIndex].Cells["수익률"].Style.ForeColor = Color.Blue;
                         this.dataGridViewAccountStock.Rows[e.RowIndex].Cells["평가손익"].Style.ForeColor = Color.Blue;
+
                     }
                 }
             }
 
         }
+
+        private void dataGridViewStockInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex > -1 && e.ColumnIndex == this.dataGridViewStockInfo.Columns["등락율"].Index)
+            {
+                if (e.Value != null)
+                {
+                    double value = double.Parse(e.Value.ToString());
+                    if (value > 0)
+                    {
+                        //this.dataGridViewAccInfo.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                        this.dataGridViewStockInfo.Rows[e.RowIndex].Cells["등락율"].Style.ForeColor = Color.Red;
+                        this.dataGridViewStockInfo.Rows[e.RowIndex].Cells["전일대비"].Style.ForeColor = Color.Red;
+                    }
+                    else if(value < 0)
+                    {
+                        //this.dataGridViewAccInfo.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Blue;
+                        this.dataGridViewStockInfo.Rows[e.RowIndex].Cells["등락율"].Style.ForeColor = Color.Blue;
+                        this.dataGridViewStockInfo.Rows[e.RowIndex].Cells["전일대비"].Style.ForeColor = Color.Blue;
+                    }
+                }
+            }
+        }
+
+        private void dataGridViewCondition_DoubleClick(object sender, EventArgs e)
+        {
+            GetConditionResult();
+        }
         #endregion
 
         #region 사용자 함수
 
-       private void Get_OPW00018_계좌평가잔고내역요청()
+        private void Get_OPW00018_계좌평가잔고내역요청()
         {
             OPW00018_계좌평가잔고내역요청 data = new OPW00018_계좌평가잔고내역요청();
             data.계좌번호 = this.tbAccount.Text;
@@ -443,7 +471,7 @@ namespace GloomySpider
             this.axKHOpenAPI.SetInputValue("계좌번호", this.tbAccount.Text);
             this.axKHOpenAPI.SetInputValue("비밀번호", "");
             this.axKHOpenAPI.SetInputValue("상장폐지조회구분", "0");
-            this.axKHOpenAPI.SetInputValue("비밀번호입력매체구분", "00");    
+            this.axKHOpenAPI.SetInputValue("비밀번호입력매체구분", "00");
 
             int result = this.axKHOpenAPI.CommRqData("계좌평가현황요청", "OPW00004", 0, "6001");
         }
@@ -489,8 +517,8 @@ namespace GloomySpider
                             orderQty,      // 주문수량
                             orderPrice,      // 주문가격 
                             orderGb,    // 거래구분 (시장가)
-                            orderType % 2 == 1 ? "03":"33",
-                            orderType % 2 == 1 ? "":this.tbLoanDate.Text,
+                            orderType % 2 == 1 ? "03" : "33",
+                            orderType % 2 == 1 ? "" : this.tbLoanDate.Text,
                             orgOrderNo);    // 원주문 번호
             }
             else
@@ -525,6 +553,21 @@ namespace GloomySpider
             return this._scrNum.ToString();
         }
 
+        private void LoadConditionSearch()
+        {
+            conditionLoadState = axKHOpenAPI.GetConditionLoad();
+
+            if (conditionLoadState == 1)
+            {
+                Logger(Log.일반, "조건식 저장 성공");
+
+            }
+            else
+            {
+                Logger(Log.에러, "조건식 저장 실패");
+            }
+        }
+
         private void GetAccountInfo()
         {
             string account = axKHOpenAPI.GetLoginInfo("ACCNO");
@@ -554,11 +597,27 @@ namespace GloomySpider
             }
         }
 
-        // 로그를 출력합니다.
         public void Logger(Log type, string msg)
         {
-            this.richTextBoxLog.AppendText(type.ToString() + " : " + msg+"\n");
+            this.richTextBoxLog.AppendText(type.ToString() + " : " + msg + "\n");
         }
+
+        private void GetConditionResult()
+        {
+            if (this.dataGridViewCondition.SelectedRows.Count == 0)
+            {
+                Logger(Log.일반, "투란나 조건식을 선택해야지!");
+                return;
+            }
+
+            int conditionIndex = Int32.Parse(this.dataGridViewCondition.SelectedRows[0].Cells[0].Value.ToString());
+            string conditionName = this.dataGridViewCondition.SelectedRows[0].Cells[1].Value.ToString();
+
+            int result = axKHOpenAPI.SendCondition(GetScreenNum(), conditionName, conditionIndex, 1);
+        }
+
         #endregion
+
+    
     }
 }

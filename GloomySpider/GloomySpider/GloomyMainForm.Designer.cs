@@ -37,11 +37,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.axKHOpenAPI = new AxKHOpenAPILib.AxKHOpenAPI();
             this.bttnLogIn = new MetroFramework.Controls.MetroButton();
-            this.listviewConditionSearchList = new MetroFramework.Controls.MetroListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bttnConditionLoad = new MetroFramework.Controls.MetroButton();
             this.btnBuy = new MetroFramework.Controls.MetroButton();
             this.btnSell = new MetroFramework.Controls.MetroButton();
@@ -70,10 +75,14 @@
             this.dataGridViewAccountStock = new MetroFramework.Controls.MetroGrid();
             this.dataGridViewAccount = new MetroFramework.Controls.MetroGrid();
             this.cbAutoStart = new System.Windows.Forms.CheckBox();
+            this.dataGridViewCondition = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewStockInfo = new MetroFramework.Controls.MetroGrid();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCondition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // axKHOpenAPI
@@ -95,35 +104,6 @@
             this.bttnLogIn.Text = "Log In";
             this.bttnLogIn.UseSelectable = true;
             this.bttnLogIn.Click += new System.EventHandler(this.bttnStart_Click);
-            // 
-            // listviewConditionSearchList
-            // 
-            this.listviewConditionSearchList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listviewConditionSearchList.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.listviewConditionSearchList.FullRowSelect = true;
-            this.listviewConditionSearchList.GridLines = true;
-            this.listviewConditionSearchList.Location = new System.Drawing.Point(462, 68);
-            this.listviewConditionSearchList.MultiSelect = false;
-            this.listviewConditionSearchList.Name = "listviewConditionSearchList";
-            this.listviewConditionSearchList.OwnerDraw = true;
-            this.listviewConditionSearchList.Size = new System.Drawing.Size(332, 257);
-            this.listviewConditionSearchList.TabIndex = 5;
-            this.listviewConditionSearchList.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.listviewConditionSearchList.UseCompatibleStateImageBehavior = false;
-            this.listviewConditionSearchList.UseSelectable = true;
-            this.listviewConditionSearchList.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "조건번호";
-            this.columnHeader1.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "조건명";
-            this.columnHeader2.Width = 200;
             // 
             // bttnConditionLoad
             // 
@@ -358,9 +338,9 @@
             // 
             // richTextBoxLog
             // 
-            this.richTextBoxLog.Location = new System.Drawing.Point(961, 72);
+            this.richTextBoxLog.Location = new System.Drawing.Point(1093, 104);
             this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.Size = new System.Drawing.Size(302, 253);
+            this.richTextBoxLog.Size = new System.Drawing.Size(212, 324);
             this.richTextBoxLog.TabIndex = 22;
             this.richTextBoxLog.Text = "";
             // 
@@ -587,11 +567,118 @@
             this.cbAutoStart.UseVisualStyleBackColor = true;
             this.cbAutoStart.CheckedChanged += new System.EventHandler(this.cbAutoStart_CheckedChanged);
             // 
+            // dataGridViewCondition
+            // 
+            this.dataGridViewCondition.AllowUserToResizeRows = false;
+            this.dataGridViewCondition.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewCondition.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewCondition.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewCondition.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCondition.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewCondition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCondition.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewCondition.EnableHeadersVisualStyles = false;
+            this.dataGridViewCondition.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dataGridViewCondition.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewCondition.Location = new System.Drawing.Point(366, 104);
+            this.dataGridViewCondition.MultiSelect = false;
+            this.dataGridViewCondition.Name = "dataGridViewCondition";
+            this.dataGridViewCondition.ReadOnly = true;
+            this.dataGridViewCondition.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCondition.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewCondition.RowHeadersVisible = false;
+            this.dataGridViewCondition.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.PaleGreen;
+            this.dataGridViewCondition.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewCondition.RowTemplate.Height = 27;
+            this.dataGridViewCondition.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCondition.Size = new System.Drawing.Size(222, 324);
+            this.dataGridViewCondition.StandardTab = true;
+            this.dataGridViewCondition.TabIndex = 41;
+            this.dataGridViewCondition.DoubleClick += new System.EventHandler(this.dataGridViewCondition_DoubleClick);
+            // 
+            // dataGridViewStockInfo
+            // 
+            this.dataGridViewStockInfo.AllowUserToResizeRows = false;
+            this.dataGridViewStockInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewStockInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewStockInfo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewStockInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStockInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewStockInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewStockInfo.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridViewStockInfo.EnableHeadersVisualStyles = false;
+            this.dataGridViewStockInfo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dataGridViewStockInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewStockInfo.Location = new System.Drawing.Point(569, 104);
+            this.dataGridViewStockInfo.MultiSelect = false;
+            this.dataGridViewStockInfo.Name = "dataGridViewStockInfo";
+            this.dataGridViewStockInfo.ReadOnly = true;
+            this.dataGridViewStockInfo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewStockInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewStockInfo.RowHeadersVisible = false;
+            this.dataGridViewStockInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewStockInfo.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewStockInfo.RowTemplate.Height = 27;
+            this.dataGridViewStockInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewStockInfo.Size = new System.Drawing.Size(518, 324);
+            this.dataGridViewStockInfo.StandardTab = true;
+            this.dataGridViewStockInfo.TabIndex = 42;
+            this.dataGridViewStockInfo.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewStockInfo_CellFormatting);
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 790);
+            this.ClientSize = new System.Drawing.Size(1330, 790);
+            this.Controls.Add(this.dataGridViewStockInfo);
+            this.Controls.Add(this.dataGridViewCondition);
             this.Controls.Add(this.cbAutoStart);
             this.Controls.Add(this.dataGridViewAccount);
             this.Controls.Add(this.dataGridViewAccountStock);
@@ -618,7 +705,6 @@
             this.Controls.Add(this.btnSell);
             this.Controls.Add(this.btnBuy);
             this.Controls.Add(this.bttnConditionLoad);
-            this.Controls.Add(this.listviewConditionSearchList);
             this.Controls.Add(this.bttnLogIn);
             this.Controls.Add(this.axKHOpenAPI);
             this.Font = new System.Drawing.Font("Malgun Gothic", 10F);
@@ -633,6 +719,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCondition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -640,7 +728,6 @@
 
         #endregion
         private MetroFramework.Controls.MetroButton bttnLogIn;
-        private MetroFramework.Controls.MetroListView listviewConditionSearchList;
         private MetroFramework.Controls.MetroButton bttnConditionLoad;
         private MetroFramework.Controls.MetroButton btnBuy;
         private MetroFramework.Controls.MetroButton btnSell;
@@ -657,8 +744,6 @@
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
         private MetroFramework.Controls.MetroButton bttnConditionSearchStart;
         private System.Windows.Forms.RichTextBox richTextBoxLog;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton3;
@@ -672,6 +757,8 @@
         internal AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI;
         private MetroFramework.Controls.MetroGrid dataGridViewAccount;
         private System.Windows.Forms.CheckBox cbAutoStart;
+        private MetroFramework.Controls.MetroGrid dataGridViewCondition;
+        private MetroFramework.Controls.MetroGrid dataGridViewStockInfo;
     }
 }
 
