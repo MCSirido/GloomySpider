@@ -416,7 +416,7 @@
             this.tab매수.Controls.Add(this.btnBuy);
             this.tab매수.HorizontalScrollbarBarColor = true;
             this.tab매수.HorizontalScrollbarHighlightOnWheel = false;
-            this.tab매수.HorizontalScrollbarSize = 3;
+            this.tab매수.HorizontalScrollbarSize = 2;
             this.tab매수.Location = new System.Drawing.Point(4, 38);
             this.tab매수.Name = "tab매수";
             this.tab매수.Size = new System.Drawing.Size(384, 218);
@@ -424,7 +424,7 @@
             this.tab매수.Text = "매수";
             this.tab매수.VerticalScrollbarBarColor = true;
             this.tab매수.VerticalScrollbarHighlightOnWheel = false;
-            this.tab매수.VerticalScrollbarSize = 5;
+            this.tab매수.VerticalScrollbarSize = 4;
             // 
             // cb매수주문수량퍼센트
             // 
@@ -619,7 +619,7 @@
             this.tab매도.Controls.Add(this.metroLabel8);
             this.tab매도.HorizontalScrollbarBarColor = true;
             this.tab매도.HorizontalScrollbarHighlightOnWheel = false;
-            this.tab매도.HorizontalScrollbarSize = 3;
+            this.tab매도.HorizontalScrollbarSize = 2;
             this.tab매도.Location = new System.Drawing.Point(4, 38);
             this.tab매도.Name = "tab매도";
             this.tab매도.Size = new System.Drawing.Size(384, 218);
@@ -627,7 +627,7 @@
             this.tab매도.Text = "매도";
             this.tab매도.VerticalScrollbarBarColor = true;
             this.tab매도.VerticalScrollbarHighlightOnWheel = false;
-            this.tab매도.VerticalScrollbarSize = 5;
+            this.tab매도.VerticalScrollbarSize = 4;
             // 
             // cb매도주문수량퍼센트
             // 
@@ -803,6 +803,7 @@
             this.btnSell.TabIndex = 52;
             this.btnSell.Text = "매도";
             this.btnSell.UseSelectable = true;
+            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // tbLoanDate
             // 
@@ -860,7 +861,7 @@
             this.tab정정취소.Controls.Add(this.metroButton3);
             this.tab정정취소.HorizontalScrollbarBarColor = true;
             this.tab정정취소.HorizontalScrollbarHighlightOnWheel = false;
-            this.tab정정취소.HorizontalScrollbarSize = 3;
+            this.tab정정취소.HorizontalScrollbarSize = 2;
             this.tab정정취소.Location = new System.Drawing.Point(4, 38);
             this.tab정정취소.Name = "tab정정취소";
             this.tab정정취소.Size = new System.Drawing.Size(384, 218);
@@ -868,7 +869,7 @@
             this.tab정정취소.Text = "정정/취소";
             this.tab정정취소.VerticalScrollbarBarColor = true;
             this.tab정정취소.VerticalScrollbarHighlightOnWheel = false;
-            this.tab정정취소.VerticalScrollbarSize = 5;
+            this.tab정정취소.VerticalScrollbarSize = 4;
             // 
             // metroButton4
             // 
