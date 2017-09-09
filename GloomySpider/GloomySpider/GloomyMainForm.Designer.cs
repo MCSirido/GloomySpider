@@ -37,11 +37,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.axKHOpenAPI = new AxKHOpenAPILib.AxKHOpenAPI();
             this.bttnLogIn = new MetroFramework.Controls.MetroButton();
-            this.listviewConditionSearchList = new MetroFramework.Controls.MetroListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bttnConditionLoad = new MetroFramework.Controls.MetroButton();
             this.tbAccount = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -97,6 +102,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCondition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).BeginInit();
             this.tabCtr주문유형.SuspendLayout();
             this.tab매수.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -124,35 +131,6 @@
             this.bttnLogIn.Text = "Log In";
             this.bttnLogIn.UseSelectable = true;
             this.bttnLogIn.Click += new System.EventHandler(this.bttnStart_Click);
-            // 
-            // listviewConditionSearchList
-            // 
-            this.listviewConditionSearchList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listviewConditionSearchList.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.listviewConditionSearchList.FullRowSelect = true;
-            this.listviewConditionSearchList.GridLines = true;
-            this.listviewConditionSearchList.Location = new System.Drawing.Point(462, 68);
-            this.listviewConditionSearchList.MultiSelect = false;
-            this.listviewConditionSearchList.Name = "listviewConditionSearchList";
-            this.listviewConditionSearchList.OwnerDraw = true;
-            this.listviewConditionSearchList.Size = new System.Drawing.Size(332, 257);
-            this.listviewConditionSearchList.TabIndex = 5;
-            this.listviewConditionSearchList.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.listviewConditionSearchList.UseCompatibleStateImageBehavior = false;
-            this.listviewConditionSearchList.UseSelectable = true;
-            this.listviewConditionSearchList.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "조건번호";
-            this.columnHeader1.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "조건명";
-            this.columnHeader2.Width = 200;
             // 
             // bttnConditionLoad
             // 
@@ -256,9 +234,9 @@
             // 
             // richTextBoxLog
             // 
-            this.richTextBoxLog.Location = new System.Drawing.Point(961, 72);
+            this.richTextBoxLog.Location = new System.Drawing.Point(1093, 104);
             this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.Size = new System.Drawing.Size(302, 253);
+            this.richTextBoxLog.Size = new System.Drawing.Size(212, 324);
             this.richTextBoxLog.TabIndex = 22;
             this.richTextBoxLog.Text = "";
             // 
@@ -1059,7 +1037,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 790);
+            this.ClientSize = new System.Drawing.Size(1330, 790);
+            this.Controls.Add(this.dataGridViewStockInfo);
+            this.Controls.Add(this.dataGridViewCondition);
             this.Controls.Add(this.cbAutoStart);
             this.Controls.Add(this.dataGridViewAccount);
             this.Controls.Add(this.dataGridViewAccountStock);
@@ -1072,7 +1052,6 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.tbAccount);
             this.Controls.Add(this.bttnConditionLoad);
-            this.Controls.Add(this.listviewConditionSearchList);
             this.Controls.Add(this.bttnLogIn);
             this.Controls.Add(this.axKHOpenAPI);
             this.Controls.Add(this.tabCtr주문유형);
@@ -1091,6 +1070,10 @@
             this.tab매수.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCondition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).EndInit();
             this.tab매도.ResumeLayout(false);
             this.tab매도.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1104,7 +1087,6 @@
 
         #endregion
         private MetroFramework.Controls.MetroButton bttnLogIn;
-        private MetroFramework.Controls.MetroListView listviewConditionSearchList;
         private MetroFramework.Controls.MetroButton bttnConditionLoad;
         private MetroFramework.Controls.MetroTextBox tbAccount;
         private MetroFramework.Controls.MetroLabel metroLabel1;
