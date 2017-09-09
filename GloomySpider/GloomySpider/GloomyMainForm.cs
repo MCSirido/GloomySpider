@@ -560,6 +560,15 @@ namespace GloomySpider
             string conditionName = this.dataGridViewCondition.SelectedRows[0].Cells[1].Value.ToString();
 
             int result = axKHOpenAPI.SendCondition(GetScreenNum(), conditionName, conditionIndex, 1);
+            if(result==1)
+            {
+
+            }
+            else
+            {
+                System.Threading.Thread.Sleep(1000);
+                axKHOpenAPI.SendCondition(GetScreenNum(), conditionName, conditionIndex, 1);
+            }
         }
 
         #endregion

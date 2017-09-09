@@ -374,7 +374,7 @@
             this.tabCtr주문유형.ItemSize = new System.Drawing.Size(128, 34);
             this.tabCtr주문유형.Location = new System.Drawing.Point(25, 168);
             this.tabCtr주문유형.Name = "tabCtr주문유형";
-            this.tabCtr주문유형.SelectedIndex = 1;
+            this.tabCtr주문유형.SelectedIndex = 0;
             this.tabCtr주문유형.Size = new System.Drawing.Size(392, 260);
             this.tabCtr주문유형.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabCtr주문유형.TabIndex = 41;
@@ -403,7 +403,7 @@
             this.tab매수.Text = "매수";
             this.tab매수.VerticalScrollbarBarColor = true;
             this.tab매수.VerticalScrollbarHighlightOnWheel = false;
-            this.tab매수.VerticalScrollbarSize = 3;
+            this.tab매수.VerticalScrollbarSize = 2;
             // 
             // cb매수주문수량퍼센트
             // 
@@ -606,7 +606,7 @@
             this.tab매도.Text = "매도";
             this.tab매도.VerticalScrollbarBarColor = true;
             this.tab매도.VerticalScrollbarHighlightOnWheel = false;
-            this.tab매도.VerticalScrollbarSize = 3;
+            this.tab매도.VerticalScrollbarSize = 2;
             // 
             // cb매도주문수량퍼센트
             // 
@@ -848,7 +848,7 @@
             this.tab정정취소.Text = "정정/취소";
             this.tab정정취소.VerticalScrollbarBarColor = true;
             this.tab정정취소.VerticalScrollbarHighlightOnWheel = false;
-            this.tab정정취소.VerticalScrollbarSize = 3;
+            this.tab정정취소.VerticalScrollbarSize = 2;
             // 
             // metroButton4
             // 
