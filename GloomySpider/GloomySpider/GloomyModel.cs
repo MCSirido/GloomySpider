@@ -184,7 +184,183 @@ namespace GloomySpider
         public string 금일매도수량 { get => _금일매도수량; set => _금일매도수량 = value; }
     }
 
-    class KOAErrorCode
+    public class OPW00011_증거금율별주문가능수량조회요청
+    {
+        private string _RQName = "증거금율별주문가능수량조회요청";
+        private string _RQCode = "OPW00011";
+
+        private string _계좌번호;
+        private string _비밀번호;
+        private string _비밀번호입력매체구분;
+        private string _종목번호;
+        private string _매수가격;
+
+        public string RQName { get => _RQName; set => _RQName = value; }
+        public string RQCode { get => _RQCode; set => _RQCode = value; }
+        public string 계좌번호 { get => _계좌번호; set => _계좌번호 = value; }
+        public string 비밀번호 { get => _비밀번호; set => _비밀번호 = value; }
+        public string 비밀번호입력매체구분 { get => _비밀번호입력매체구분; set => _비밀번호입력매체구분 = value; }
+        public string 종목번호 { get => _종목번호; set => _종목번호 = value; }
+        public string 매수가격 { get => _매수가격; set => _매수가격 = value; }
+    }
+
+    public class OPW00011_증거금율별주문가능수량조회
+    {
+        private string _종목증거금율;
+        private string _계좌증거금율;
+        private string _적용증거금율;
+        private string _증거금20주문가능금액;
+        private string _증거금20주문가능수량;
+        private string _증거금20전일재사용금액;
+        private string _증거금20금일재사용금액;
+        private string _증거금30주문가능금액;
+        private string _증거금30주문가능수량;
+        private string _증거금30전일재사용금액;
+        private string _증거금30금일재사용금액;
+        private string _증거금40주문가능금액;
+        private string _증거금40주문가능수량;
+        private string _증거금40전일재사용금액;
+        private string _증거금40금일재사용금액;
+        private string _증거금50주문가능금액;
+        private string _증거금50주문가능수량;
+        private string _증거금50전일재사용금액;
+        private string _증거금50금일재사용금액;
+        private string _증거금60주문가능금액;
+        private string _증거금60주문가능수량;
+        private string _증거금60전일재사용금액;
+        private string _증거금60금일재사용금액;
+        private string _증거금100주문가능금액;
+        private string _증거금100주문가능수량;
+        private string _증거금100전일재사용금액;
+        private string _증거금100금일재사용금액;
+        private string _미수불가주문가능금액;
+        private string _미수불가주문가능수량;
+        private string _미수불가전일재사용금액;
+        private string _미수불가금일재사용금액;
+        private string _예수금;
+        private string _대용금;
+        private string _미수금;
+        private string _주문가능대용;
+        private string _주문가능현금;
+
+        public string 종목증거금율 { get => _종목증거금율; set => _종목증거금율 = value; }
+        public string 계좌증거금율 { get => _계좌증거금율; set => _계좌증거금율 = value; }
+        public string 적용증거금율 { get => _적용증거금율; set => _적용증거금율 = value; }
+        public string 증거금20주문가능금액 { get => _증거금20주문가능금액; set => _증거금20주문가능금액 = value; }
+        public string 증거금20주문가능수량 { get => _증거금20주문가능수량; set => _증거금20주문가능수량 = value; }
+        public string 증거금20전일재사용금액 { get => _증거금20전일재사용금액; set => _증거금20전일재사용금액 = value; }
+        public string 증거금20금일재사용금액 { get => _증거금20금일재사용금액; set => _증거금20금일재사용금액 = value; }
+        public string 증거금30주문가능금액 { get => _증거금30주문가능금액; set => _증거금30주문가능금액 = value; }
+        public string 증거금30주문가능수량 { get => _증거금30주문가능수량; set => _증거금30주문가능수량 = value; }
+        public string 증거금30전일재사용금액 { get => _증거금30전일재사용금액; set => _증거금30전일재사용금액 = value; }
+        public string 증거금30금일재사용금액 { get => _증거금30금일재사용금액; set => _증거금30금일재사용금액 = value; }
+        public string 증거금40주문가능금액 { get => _증거금40주문가능금액; set => _증거금40주문가능금액 = value; }
+        public string 증거금40주문가능수량 { get => _증거금40주문가능수량; set => _증거금40주문가능수량 = value; }
+        public string 증거금40전일재사용금액 { get => _증거금40전일재사용금액; set => _증거금40전일재사용금액 = value; }
+        public string 증거금40금일재사용금액 { get => _증거금40금일재사용금액; set => _증거금40금일재사용금액 = value; }
+        public string 증거금50주문가능금액 { get => _증거금50주문가능금액; set => _증거금50주문가능금액 = value; }
+        public string 증거금50주문가능수량 { get => _증거금50주문가능수량; set => _증거금50주문가능수량 = value; }
+        public string 증거금50전일재사용금액 { get => _증거금50전일재사용금액; set => _증거금50전일재사용금액 = value; }
+        public string 증거금50금일재사용금액 { get => _증거금50금일재사용금액; set => _증거금50금일재사용금액 = value; }
+        public string 증거금60주문가능금액 { get => _증거금60주문가능금액; set => _증거금60주문가능금액 = value; }
+        public string 증거금60주문가능수량 { get => _증거금60주문가능수량; set => _증거금60주문가능수량 = value; }
+        public string 증거금60전일재사용금액 { get => _증거금60전일재사용금액; set => _증거금60전일재사용금액 = value; }
+        public string 증거금60금일재사용금액 { get => _증거금60금일재사용금액; set => _증거금60금일재사용금액 = value; }
+        public string 증거금100주문가능금액 { get => _증거금100주문가능금액; set => _증거금100주문가능금액 = value; }
+        public string 증거금100주문가능수량 { get => _증거금100주문가능수량; set => _증거금100주문가능수량 = value; }
+        public string 증거금100전일재사용금액 { get => _증거금100전일재사용금액; set => _증거금100전일재사용금액 = value; }
+        public string 증거금100금일재사용금액 { get => _증거금100금일재사용금액; set => _증거금100금일재사용금액 = value; }
+        public string 미수불가주문가능금액 { get => _미수불가주문가능금액; set => _미수불가주문가능금액 = value; }
+        public string 미수불가주문가능수량 { get => _미수불가주문가능수량; set => _미수불가주문가능수량 = value; }
+        public string 미수불가전일재사용금액 { get => _미수불가전일재사용금액; set => _미수불가전일재사용금액 = value; }
+        public string 미수불가금일재사용금액 { get => _미수불가금일재사용금액; set => _미수불가금일재사용금액 = value; }
+        public string 예수금 { get => _예수금; set => _예수금 = value; }
+        public string 대용금 { get => _대용금; set => _대용금 = value; }
+        public string 미수금 { get => _미수금; set => _미수금 = value; }
+        public string 주문가능대용 { get => _주문가능대용; set => _주문가능대용 = value; }
+        public string 주문가능현금 { get => _주문가능현금; set => _주문가능현금 = value; }
+    }
+
+    public class OPW00012_신용보증금율별주문가능수량조회요청
+    {
+        private string _RQName = "신용보증금율별주문가능수량조회요청";
+        private string _RQCode = "OPW00012";
+
+        private string _계좌번호;
+        private string _비밀번호;
+        private string _비밀번호입력매체구분;
+        private string _종목번호;
+        private string _매수가격;
+
+        public string RQName { get => _RQName; set => _RQName = value; }
+        public string RQCode { get => _RQCode; set => _RQCode = value; }
+        public string 계좌번호 { get => _계좌번호; set => _계좌번호 = value; }
+        public string 비밀번호 { get => _비밀번호; set => _비밀번호 = value; }
+        public string 비밀번호입력매체구분 { get => _비밀번호입력매체구분; set => _비밀번호입력매체구분 = value; }
+        public string 종목번호 { get => _종목번호; set => _종목번호 = value; }
+        public string 매수가격 { get => _매수가격; set => _매수가격 = value; }
+    }
+
+        public class OPW00012_신용보증금율별주문가능수량조회
+    {
+        private string _종목보증금율;
+        private string _종목보증금율명;
+        private string _보증금30주문가능금액;
+        private string _보증금30주문가능수량;
+        private string _보증금30전일재사용금액;
+        private string _보증금30금일재사용금액;
+        private string _보증금40주문가능금액;
+        private string _보증금40주문가능수량;
+        private string _보증금40전일재사용금액;
+        private string _보증금40금일재사용금액;
+        private string _보증금50주문가능금액;
+        private string _보증금50주문가능수량;
+        private string _보증금50전일재사용금액;
+        private string _보증금50금일재사용금액;
+        private string _보증금60주문가능금액;
+        private string _보증금60주문가능수량;
+        private string _보증금60전일재사용금액;
+        private string _보증금60금일재사용금액;
+        private string _예수금;
+        private string _대용금;
+        private string _미수금;
+        private string _주문가능대용;
+        private string _주문가능현금;
+        private string _미수가능금액;
+        private string _미수가능수량;
+        private string _미수불가금액;
+        private string _미수불가수량;
+
+        public string 종목보증금율 { get => _종목보증금율; set => _종목보증금율 = value; }
+        public string 종목보증금율명 { get => _종목보증금율명; set => _종목보증금율명 = value; }
+        public string 보증금30주문가능금액 { get => _보증금30주문가능금액; set => _보증금30주문가능금액 = value; }
+        public string 보증금30주문가능수량 { get => _보증금30주문가능수량; set => _보증금30주문가능수량 = value; }
+        public string 보증금30전일재사용금액 { get => _보증금30전일재사용금액; set => _보증금30전일재사용금액 = value; }
+        public string 보증금30금일재사용금액 { get => _보증금30금일재사용금액; set => _보증금30금일재사용금액 = value; }
+        public string 보증금40주문가능금액 { get => _보증금40주문가능금액; set => _보증금40주문가능금액 = value; }
+        public string 보증금40주문가능수량 { get => _보증금40주문가능수량; set => _보증금40주문가능수량 = value; }
+        public string 보증금40전일재사용금액 { get => _보증금40전일재사용금액; set => _보증금40전일재사용금액 = value; }
+        public string 보증금40금일재사용금액 { get => _보증금40금일재사용금액; set => _보증금40금일재사용금액 = value; }
+        public string 보증금50주문가능금액 { get => _보증금50주문가능금액; set => _보증금50주문가능금액 = value; }
+        public string 보증금50주문가능수량 { get => _보증금50주문가능수량; set => _보증금50주문가능수량 = value; }
+        public string 보증금50전일재사용금액 { get => _보증금50전일재사용금액; set => _보증금50전일재사용금액 = value; }
+        public string 보증금50금일재사용금액 { get => _보증금50금일재사용금액; set => _보증금50금일재사용금액 = value; }
+        public string 보증금60주문가능금액 { get => _보증금60주문가능금액; set => _보증금60주문가능금액 = value; }
+        public string 보증금60주문가능수량 { get => _보증금60주문가능수량; set => _보증금60주문가능수량 = value; }
+        public string 보증금60전일재사용금액 { get => _보증금60전일재사용금액; set => _보증금60전일재사용금액 = value; }
+        public string 보증금60금일재사용금액 { get => _보증금60금일재사용금액; set => _보증금60금일재사용금액 = value; }
+        public string 예수금 { get => _예수금; set => _예수금 = value; }
+        public string 대용금 { get => _대용금; set => _대용금 = value; }
+        public string 미수금 { get => _미수금; set => _미수금 = value; }
+        public string 주문가능대용 { get => _주문가능대용; set => _주문가능대용 = value; }
+        public string 주문가능현금 { get => _주문가능현금; set => _주문가능현금 = value; }
+        public string 미수가능금액 { get => _미수가능금액; set => _미수가능금액 = value; }
+        public string 미수가능수량 { get => _미수가능수량; set => _미수가능수량 = value; }
+        public string 미수불가금액 { get => _미수불가금액; set => _미수불가금액 = value; }
+        public string 미수불가수량 { get => _미수불가수량; set => _미수불가수량 = value; }
+    }
+
+        class KOAErrorCode
     {
         public const int OP_ERR_NONE = 0;     //"정상처리"
         public const int OP_ERR_LOGIN = -100;  //"사용자정보교환에 실패하였습니다. 잠시후 다시 시작하여 주십시오."
