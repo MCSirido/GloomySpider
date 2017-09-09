@@ -104,14 +104,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCondition)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).BeginInit();
             this.tabCtr주문유형.SuspendLayout();
             this.tab매수.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tab매도.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tab정정취소.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCondition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // axKHOpenAPI
@@ -236,7 +236,7 @@
             // 
             // richTextBoxLog
             // 
-            this.richTextBoxLog.Location = new System.Drawing.Point(1093, 104);
+            this.richTextBoxLog.Location = new System.Drawing.Point(1153, 104);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.Size = new System.Drawing.Size(212, 324);
             this.richTextBoxLog.TabIndex = 22;
@@ -396,7 +396,7 @@
             this.tab매수.Controls.Add(this.btnBuy);
             this.tab매수.HorizontalScrollbarBarColor = true;
             this.tab매수.HorizontalScrollbarHighlightOnWheel = false;
-            this.tab매수.HorizontalScrollbarSize = 2;
+            this.tab매수.HorizontalScrollbarSize = 1;
             this.tab매수.Location = new System.Drawing.Point(4, 38);
             this.tab매수.Name = "tab매수";
             this.tab매수.Size = new System.Drawing.Size(384, 218);
@@ -404,7 +404,7 @@
             this.tab매수.Text = "매수";
             this.tab매수.VerticalScrollbarBarColor = true;
             this.tab매수.VerticalScrollbarHighlightOnWheel = false;
-            this.tab매수.VerticalScrollbarSize = 4;
+            this.tab매수.VerticalScrollbarSize = 3;
             // 
             // cb매수주문수량퍼센트
             // 
@@ -599,7 +599,7 @@
             this.tab매도.Controls.Add(this.metroLabel8);
             this.tab매도.HorizontalScrollbarBarColor = true;
             this.tab매도.HorizontalScrollbarHighlightOnWheel = false;
-            this.tab매도.HorizontalScrollbarSize = 2;
+            this.tab매도.HorizontalScrollbarSize = 1;
             this.tab매도.Location = new System.Drawing.Point(4, 38);
             this.tab매도.Name = "tab매도";
             this.tab매도.Size = new System.Drawing.Size(384, 218);
@@ -607,7 +607,7 @@
             this.tab매도.Text = "매도";
             this.tab매도.VerticalScrollbarBarColor = true;
             this.tab매도.VerticalScrollbarHighlightOnWheel = false;
-            this.tab매도.VerticalScrollbarSize = 4;
+            this.tab매도.VerticalScrollbarSize = 3;
             // 
             // cb매도주문수량퍼센트
             // 
@@ -841,7 +841,7 @@
             this.tab정정취소.Controls.Add(this.metroButton3);
             this.tab정정취소.HorizontalScrollbarBarColor = true;
             this.tab정정취소.HorizontalScrollbarHighlightOnWheel = false;
-            this.tab정정취소.HorizontalScrollbarSize = 2;
+            this.tab정정취소.HorizontalScrollbarSize = 1;
             this.tab정정취소.Location = new System.Drawing.Point(4, 38);
             this.tab정정취소.Name = "tab정정취소";
             this.tab정정취소.Size = new System.Drawing.Size(384, 218);
@@ -849,7 +849,7 @@
             this.tab정정취소.Text = "정정/취소";
             this.tab정정취소.VerticalScrollbarBarColor = true;
             this.tab정정취소.VerticalScrollbarHighlightOnWheel = false;
-            this.tab정정취소.VerticalScrollbarSize = 4;
+            this.tab정정취소.VerticalScrollbarSize = 3;
             // 
             // metroButton4
             // 
@@ -1035,7 +1035,6 @@
             this.btn계좌정보조회.Text = "계좌 정보 조회";
             this.btn계좌정보조회.UseSelectable = true;
             this.btn계좌정보조회.Click += new System.EventHandler(this.btn계좌정보조회_Click);
-
             // 
             // dataGridViewCondition
             // 
@@ -1064,7 +1063,7 @@
             this.dataGridViewCondition.EnableHeadersVisualStyles = false;
             this.dataGridViewCondition.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridViewCondition.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewCondition.Location = new System.Drawing.Point(366, 104);
+            this.dataGridViewCondition.Location = new System.Drawing.Point(426, 104);
             this.dataGridViewCondition.MultiSelect = false;
             this.dataGridViewCondition.Name = "dataGridViewCondition";
             this.dataGridViewCondition.ReadOnly = true;
@@ -1117,7 +1116,7 @@
             this.dataGridViewStockInfo.EnableHeadersVisualStyles = false;
             this.dataGridViewStockInfo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridViewStockInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewStockInfo.Location = new System.Drawing.Point(569, 104);
+            this.dataGridViewStockInfo.Location = new System.Drawing.Point(629, 104);
             this.dataGridViewStockInfo.MultiSelect = false;
             this.dataGridViewStockInfo.Name = "dataGridViewStockInfo";
             this.dataGridViewStockInfo.ReadOnly = true;
@@ -1146,7 +1145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 790);
+            this.ClientSize = new System.Drawing.Size(1380, 790);
             this.Controls.Add(this.dataGridViewStockInfo);
             this.Controls.Add(this.dataGridViewCondition);
             this.Controls.Add(this.cbAutoStart);
@@ -1164,7 +1163,7 @@
             this.Controls.Add(this.bttnLogIn);
             this.Controls.Add(this.axKHOpenAPI);
             this.Controls.Add(this.tabCtr주문유형);
-            this.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.Font = new System.Drawing.Font("Malgun Gothic", 10F);
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "MainFrom";
@@ -1179,16 +1178,14 @@
             this.tab매수.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCondition)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).EndInit();
             this.tab매도.ResumeLayout(false);
             this.tab매도.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tab정정취소.ResumeLayout(false);
             this.tab정정취소.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCondition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
