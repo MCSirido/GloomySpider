@@ -36,6 +36,7 @@ namespace GloomySpider
             cb매도주문유형.DisplayMember = "Name";
             cb매도주문유형.ValueMember = "Code";
 
+
             if (Properties.Settings.Default.AutoStart)
                 this.cbAutoStart.Checked = true;
         }
@@ -649,6 +650,17 @@ namespace GloomySpider
             this.axKHOpenAPI.SetInputValue("매수가격", data.매수가격);
 
             int result1 = this.axKHOpenAPI.CommRqData(data.RQName, data.RQCode, 0, GetScreenNum());
+        }
+
+        // 실시간 연결 종료
+        private void DisconnectAllRealData()
+        {
+            for (int i = _scrNum; i > 5000; i--)
+            {
+                axKHOpenAPI.DisconnectRealData(i.ToString());
+            }
+
+            _scrNum = 5000;
         }
     }
 }

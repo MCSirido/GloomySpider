@@ -236,7 +236,7 @@
             // 
             // richTextBoxLog
             // 
-            this.richTextBoxLog.Location = new System.Drawing.Point(1153, 104);
+            this.richTextBoxLog.Location = new System.Drawing.Point(1178, 104);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.Size = new System.Drawing.Size(212, 324);
             this.richTextBoxLog.TabIndex = 22;
@@ -255,7 +255,6 @@
             // 
             this.dataGridViewAccountStock.AllowUserToResizeRows = false;
             this.dataGridViewAccountStock.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewAccountStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewAccountStock.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewAccountStock.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
@@ -307,7 +306,6 @@
             // 
             this.dataGridViewAccount.AllowUserToResizeRows = false;
             this.dataGridViewAccount.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewAccount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
@@ -1039,7 +1037,6 @@
             // 
             this.dataGridViewCondition.AllowUserToResizeRows = false;
             this.dataGridViewCondition.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewCondition.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewCondition.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewCondition.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
@@ -1092,7 +1089,6 @@
             // 
             this.dataGridViewStockInfo.AllowUserToResizeRows = false;
             this.dataGridViewStockInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewStockInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewStockInfo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewStockInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
@@ -1115,7 +1111,7 @@
             this.dataGridViewStockInfo.EnableHeadersVisualStyles = false;
             this.dataGridViewStockInfo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridViewStockInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewStockInfo.Location = new System.Drawing.Point(629, 104);
+            this.dataGridViewStockInfo.Location = new System.Drawing.Point(654, 104);
             this.dataGridViewStockInfo.MultiSelect = false;
             this.dataGridViewStockInfo.Name = "dataGridViewStockInfo";
             this.dataGridViewStockInfo.ReadOnly = true;
@@ -1144,7 +1140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1380, 790);
+            this.ClientSize = new System.Drawing.Size(1410, 790);
             this.Controls.Add(this.dataGridViewStockInfo);
             this.Controls.Add(this.dataGridViewCondition);
             this.Controls.Add(this.cbAutoStart);
