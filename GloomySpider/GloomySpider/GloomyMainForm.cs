@@ -91,6 +91,8 @@ namespace GloomySpider
             if (e.sRQName.Equals("계좌평가잔고내역요청"))
             {
                 #region 계좌평가잔고내역요청
+                if (e.nDataLength == 0)
+                    return;
                 this.dataGridViewAccount.DataSource = null;
                 int multiCount = 0;
                 List<OPW00018_계좌평가결과> dataSingleList = new List<OPW00018_계좌평가결과>();
@@ -272,7 +274,7 @@ namespace GloomySpider
             if (e.nErrCode == 0)
             {
                 Logger(Log.일반, "로그인 성공");
-                GetAccountInfo();
+                //GetAccountInfo();
 
                 Get_OPW00018_계좌평가잔고내역요청();
             }
@@ -336,7 +338,8 @@ namespace GloomySpider
 
         private void btn계좌정보조회_Click(object sender, EventArgs e)
         {
-            Get_OPW00018_계좌평가잔고내역요청();
+            //Get_OPW00018_계좌평가잔고내역요청();
+            Get_OPW00004_계좌평가현황요청();
         }
 
         private void dataGridViewAccInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -637,6 +640,11 @@ namespace GloomySpider
             this.axKHOpenAPI.SetInputValue("매수가격", data.매수가격);
 
             int result1 = this.axKHOpenAPI.CommRqData(data.RQName, data.RQCode, 0, GetScreenNum());
+        }
+
+        private void btn매도가능수량_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
