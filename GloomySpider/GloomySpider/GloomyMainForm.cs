@@ -221,7 +221,8 @@ namespace GloomySpider
                 {
                     col.SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
-                dataGridViewAccountStock.SelectedRows[0].Selected = false;
+                if(dataGridViewAccountStock.SelectedRows.Count>0)
+                    dataGridViewAccountStock.SelectedRows[0].Selected = false;
 
 
                 Logger(Log.조회, "계좌정보 조회 성공");
@@ -250,6 +251,7 @@ namespace GloomySpider
             if (string.IsNullOrEmpty(codeList))
             {
                 Logger(Log.일반, "해당 조건 검색 종목 없음");
+                this.dataGridViewStockInfo.DataSource = null;
                 return;
             }
 
@@ -275,6 +277,7 @@ namespace GloomySpider
                 GetAccountInfo();
 
                 Get_OPW00018_계좌평가잔고내역요청();
+                //Get_OPW00004_계좌평가현황요청();
             }
             else
             {
