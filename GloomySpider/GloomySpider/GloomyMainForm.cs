@@ -344,6 +344,7 @@ namespace GloomySpider
         {
             //Get_OPW00018_계좌평가잔고내역요청();
             Get_OPW00004_계좌평가현황요청();
+
         }
 
         private void dataGridViewAccInfo_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
