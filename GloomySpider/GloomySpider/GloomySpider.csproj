@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NotYetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotYetForm.Designer.cs">
+      <DependentUpon>NotYetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GloomyMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <Compile Include="GloomyUtil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="NotYetForm.resx">
+      <DependentUpon>NotYetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GloomyMainForm.resx">
       <DependentUpon>GloomyMainForm.cs</DependentUpon>
     </EmbeddedResource>

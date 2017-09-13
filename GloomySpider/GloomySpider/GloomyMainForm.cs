@@ -671,5 +671,11 @@ namespace GloomySpider
         {
 
         }
+
+        private void btn취소미체결_Click(object sender, EventArgs e)
+        {
+            NotYetForm form = new NotYetForm();
+            form.Show();
+        }
     }
 }
