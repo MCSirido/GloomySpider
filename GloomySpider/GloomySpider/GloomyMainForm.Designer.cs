@@ -1195,8 +1195,6 @@
         private MetroFramework.Controls.MetroTextBox tbStockCode;
         private MetroFramework.Controls.MetroButton bttnConditionSearchStart;
         private System.Windows.Forms.RichTextBox richTextBoxLog;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroGrid dataGridViewAccountStock;
         internal AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI;
